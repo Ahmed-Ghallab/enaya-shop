@@ -1,0 +1,18 @@
+.BigSaleBanner {
+  background-image: url("../../assets/home/skin-carebanner-design.webp");
+  background-size: cover;
+  /* background-attachment: fixed; */
+  background-position: center;
+  height: auto;
+  overflow: hidden;
+  transition: transform 0.8s ease-in-out;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .BigSaleBanner {
+    height: 25vh;
+    background-position: 70% center;
+  }
+}

@@ -1,0 +1,46 @@
+.nav-container {
+  padding: 8px 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: white;
+  font-size: 12px;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b, #1db954, #0099ff);
+  background-size: 300% 300%;
+  animation: gradientMove 3s ease infinite;
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+  color: #fff;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
