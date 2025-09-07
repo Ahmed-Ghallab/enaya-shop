@@ -4,7 +4,6 @@ import Home from "./pages/HomePage/Home";
 import About from "./pages/AboutPage/About";
 import Contact from "./pages/ContactPage/Contact";
 import Product from "./pages/ProductPage/Product";
-import Services from "./pages/servicesPage/Services";
 import Shop from "./pages/shopPage/Shop";
 import Login from "./pages/Auth/LoginPage/Login";
 import Register from "./pages/Auth/RegisterPage/Register";
@@ -50,14 +49,6 @@ export default function App() {
             element={
               <MainLayout>
                 <Product />
-              </MainLayout>
-            }
-          />
-          <Route
-            path="/services"
-            element={
-              <MainLayout>
-                <Services />
               </MainLayout>
             }
           />
