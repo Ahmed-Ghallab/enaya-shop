@@ -23,9 +23,9 @@ export default function Footer() {
         <div>
           <h3 className="font-bold text-lg text-gray-900">Support</h3>
           <ul className="space-y-2">
-            <li><Link to="/terms" className="hover:text-pink-500 transition">Terms of Service</Link></li>
-            <li><Link to="/privacy" className="hover:text-pink-500 transition">Privacy Policy</Link></li>
-            <li><Link to="/refund" className="hover:text-pink-500 transition">Refund Policy</Link></li>
+            <li><Link to="/terms-of-service" className="hover:text-pink-500 transition">Terms of Service</Link></li>
+            <li><Link to="/privacy-policy" className="hover:text-pink-500 transition">Privacy Policy</Link></li>
+            <li><Link to="/refund-policy" className="hover:text-pink-500 transition">Refund Policy</Link></li>
             <li><Link to="/faq" className="hover:text-pink-500 transition">FAQ</Link></li>
           </ul>
         </div>
@@ -45,7 +45,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="mt-6 border-t border-gray-200 pt-4 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} Enaya. All rights reserved.
+        © {new Date().getFullYear()}  <span className="font-semibold text-pink-600">Enaya</span>. All rights reserved.
       </div>
     </footer>
   );

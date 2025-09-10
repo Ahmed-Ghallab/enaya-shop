@@ -13,6 +13,11 @@ import MainLayout from "./layouts/MainLayout";
 import "./App.css";
 import ProfilePage from "./pages/Auth/ProfilePage";
 import Cart from "./pages/CartPage/Cart";
+// new
+import TermsOfService from "./pages/TermsOfServicePage/TermsOfService";
+import PrivacyPolicy from "./pages/PrivacyPolicyPage/PrivacyPolicy";
+import RefundPolicy from "./pages/RefundPolicyPage/RefundPolicy";
+import FAQ from "./pages/FAQPage/FAQ";
 
 export default function App() {
   return (
@@ -73,6 +78,39 @@ export default function App() {
             element={
               <MainLayout>
                 <Cart />
+              </MainLayout>
+            }
+          />
+          {/* new */}
+          <Route
+            path="/terms-of-service"
+            element={
+              <MainLayout>
+                <TermsOfService />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/privacy-policy"
+            element={
+              <MainLayout>
+                <PrivacyPolicy />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/refund-policy"
+            element={
+              <MainLayout>
+                <RefundPolicy />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/faq"
+            element={
+              <MainLayout>
+                <FAQ />
               </MainLayout>
             }
           />
