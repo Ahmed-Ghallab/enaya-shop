@@ -1,15 +1,18 @@
 import { FaTrash } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 import { cartStore } from "../../data/cartStore";
 
 export default function Cart() {
   const { cartItems, removeFromCart, updateQuantity } = cartStore();
+  const navigate = useNavigate();
 
   const calculateSubtotal = () =>
     cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   if (cartItems.length === 0)
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-pink-50 to-white px-4">
         <h2 className="text-2xl font-bold text-gray-700">
           Your <span className="text-pink-500">Cart</span> is empty
         </h2>
@@ -17,11 +20,25 @@ export default function Cart() {
     );
 
   return (
-    <div className="min-h-screen bg-gray-50 px-4 py-10">
+    <div className="min-h-screen bg-gradient-to-b from-pink-50 to-white px-4 py-16">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-          Your <span className="text-pink-500">Cart</span>
-        </h2>
+        {/* Breadcrumb */}
+        <nav className="text-sm text-gray-500 mb-6 flex items-center space-x-2">
+          <Link
+            to="/"
+            className="flex items-center gap-1 hover:text-pink-600 transition"
+          >
+            <FaHome className="text-pink-500" />
+            <span>Home</span>
+          </Link>
+          <span>/</span>
+          <span className="text-pink-600 font-semibold">Cart</span>
+        </nav>
+
+        {/* Title */}
+        <h1 className="text-4xl font-bold text-center text-pink-600 mb-10">
+          Your Cart
+        </h1>
 
         {/* Desktop Table */}
         <div className="hidden md:block bg-white shadow-md rounded-xl overflow-hidden">
@@ -44,7 +61,9 @@ export default function Cart() {
                       alt={item.title}
                       className="w-20 h-20 object-cover rounded-lg"
                     />
-                    <span className="font-medium text-gray-700">{item.title}</span>
+                    <span className="font-medium text-gray-700">
+                      {item.title}
+                    </span>
                   </td>
                   <td className="p-4 text-gray-700">${item.price}</td>
                   <td className="p-4">
@@ -78,9 +97,14 @@ export default function Cart() {
           <div className="flex justify-between items-center p-6 border-t border-gray-200">
             <div className="text-lg font-semibold text-gray-700">
               Subtotal:{" "}
-              <span className="text-pink-500">${calculateSubtotal().toFixed(2)}</span>
+              <span className="text-pink-500">
+                ${calculateSubtotal().toFixed(2)}
+              </span>
             </div>
-            <button className="bg-pink-500 text-white py-2 px-6 rounded-lg hover:bg-pink-600 transition">
+            <button
+              onClick={() => navigate("/checkout")}
+              className="bg-pink-500 text-white py-2 px-6 rounded-lg hover:bg-pink-600 transition"
+            >
               Proceed to Checkout
             </button>
           </div>
@@ -130,9 +154,14 @@ export default function Cart() {
           <div className="flex flex-col gap-4 mt-4">
             <div className="text-lg font-semibold text-gray-700 text-right">
               Subtotal:{" "}
-              <span className="text-pink-500">${calculateSubtotal().toFixed(2)}</span>
+              <span className="text-pink-500">
+                ${calculateSubtotal().toFixed(2)}
+              </span>
             </div>
-            <button className="bg-pink-500 text-white py-2 rounded-lg hover:bg-pink-600 transition w-full">
+            <button
+              onClick={() => navigate("/checkout")}
+              className="bg-pink-500 text-white py-2 rounded-lg hover:bg-pink-600 transition w-full"
+            >
               Proceed to Checkout
             </button>
           </div>

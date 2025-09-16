@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { FiSearch, FiShoppingCart, FiUser, FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 import logoImg from "../../assets/logo8removed.png";
 import SocialIcons from "../common/SocialIcons/Social";
 import LanguageSwitcher from "../common/LanguageSwitcher/LanguageSwitcher";
+
+import CartIcon from "../common/CartIcon/CartIcon";
+import UserMenu from "../common/UserMenu/UserMenu";
+import LiveSearch from "../common/LiveSearch/LiveSearch";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -51,10 +55,9 @@ export default function Header() {
                 size={24}
               />
             )}
-            <FiSearch
-              className="text-gray-700 hover:text-pink-500 cursor-pointer"
-              size={22}
-            />
+
+            {/* Search component in mobile */}
+            <LiveSearch />
           </div>
 
           {/* mapping Nav Links for Desktop */}
@@ -90,9 +93,12 @@ export default function Header() {
 
         {/* Right Icons */}
         <div className="flex items-center space-x-4">
-          <FiShoppingCart className="text-gray-700 hover:text-pink-500 cursor-pointer" size={22} />
-          <FiUser className="text-gray-700 hover:text-pink-500 cursor-pointer" size={22} />
-          <FiSearch className="hidden md:block text-gray-700 hover:text-pink-500 cursor-pointer" size={22} />
+          <CartIcon />
+          <UserMenu />
+          {/* Search only يظهر في الديسكتوب */}
+          <div className="hidden md:block">
+            <LiveSearch />
+          </div>
         </div>
       </div>
 

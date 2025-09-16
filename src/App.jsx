@@ -18,6 +18,8 @@ import TermsOfService from "./pages/TermsOfServicePage/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicyPage/PrivacyPolicy";
 import RefundPolicy from "./pages/RefundPolicyPage/RefundPolicy";
 import FAQ from "./pages/FAQPage/FAQ";
+import Checkout from "./pages/CheckoutPage/Checkout";
+import OrderSuccessPage from "./pages/OrderSuccessPage/OrderSuccessPage";
 
 export default function App() {
   return (
@@ -114,6 +116,8 @@ export default function App() {
               </MainLayout>
             }
           />
+          <Route path="/checkout" element={ <MainLayout> <Checkout /> </MainLayout>} />
+          <Route path="/order-success/:id" element={ <MainLayout> <OrderSuccessPage /> </MainLayout>} />
 
           {/* صفحات الـ Auth من غير Layout */}
           <Route path="/auth/login" element={<Login />} />
