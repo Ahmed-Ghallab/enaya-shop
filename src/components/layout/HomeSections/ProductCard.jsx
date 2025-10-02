@@ -3,18 +3,20 @@ import { useNavigate } from "react-router-dom";
 import { FaEye, FaShoppingCart } from "react-icons/fa";
 import { toast } from "react-toastify";
 import QuickViewModal from "./QuickViewModal";
+import { cartStore } from "../../../store/cartStore"; // ✅ استدعاء الستور
 
 export default function ProductCard({ product }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+  const { addToCart } = cartStore(); // ✅ جايب الدالة من الستور
 
-  const addToCart = () => {
+  const handleAddToCart = () => {
+    addToCart(product);
     toast.success(`${product.title} added to cart!`);
   };
 
   return (
     <div className="relative group bg-white shadow-md rounded-xl overflow-hidden transition hover:shadow-xl">
-      {/* Badge أعلى اليسار */}
       {product.badge && (
         <span className="absolute top-2 left-2 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded z-10">
           {product.badge}
@@ -32,7 +34,6 @@ export default function ProductCard({ product }) {
           className="w-full h-48 object-cover transform transition duration-500 group-hover:scale-105"
         />
 
-        {/* أيقونة Quick View أعلى اليمين */}
         <button
           onClick={(e) => {
             e.stopPropagation();
@@ -67,7 +68,7 @@ export default function ProductCard({ product }) {
         <button
           onClick={(e) => {
             e.stopPropagation();
-            addToCart();
+            handleAddToCart();
           }}
           className="
             mt-3 w-full flex items-center justify-center gap-2 

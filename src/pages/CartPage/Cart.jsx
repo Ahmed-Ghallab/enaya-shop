@@ -1,14 +1,15 @@
-import { FaTrash } from "react-icons/fa";
-import { FaHome } from "react-icons/fa";
+import { FaTrash, FaHome } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { cartStore } from "../../data/cartStore";
+import { cartStore } from "../../store/cartStore";
 
 export default function Cart() {
-  const { cartItems, removeFromCart, updateQuantity } = cartStore();
-  const navigate = useNavigate();
+  // 🟢 جلب القيم من Zustand
+  const cartItems = cartStore((state) => state.cartItems);
+  const removeFromCart = cartStore((state) => state.removeFromCart);
+  const updateQuantity = cartStore((state) => state.updateQuantity);
+  const subtotal = cartStore((state) => state.subtotal()); // ✅ استدعاء الفانكشن
 
-  const calculateSubtotal = () =>
-    cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const navigate = useNavigate();
 
   if (cartItems.length === 0)
     return (
@@ -67,15 +68,29 @@ export default function Cart() {
                   </td>
                   <td className="p-4 text-gray-700">${item.price}</td>
                   <td className="p-4">
-                    <input
-                      type="number"
-                      min="1"
-                      value={item.quantity}
-                      onChange={(e) =>
-                        updateQuantity(item.id, parseInt(e.target.value))
-                      }
-                      className="w-16 text-center border border-gray-300 rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-pink-500"
-                    />
+                    {/* Counter Buttons */}
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() =>
+                          updateQuantity(item.id, item.quantity - 1)
+                        }
+                        disabled={item.quantity <= 1}
+                        className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+                      >
+                        -
+                      </button>
+                      <span className="px-3 font-semibold">
+                        {item.quantity}
+                      </span>
+                      <button
+                        onClick={() =>
+                          updateQuantity(item.id, item.quantity + 1)
+                        }
+                        className="px-3 py-1 bg-pink-500 text-white rounded hover:bg-pink-600"
+                      >
+                        +
+                      </button>
+                    </div>
                   </td>
                   <td className="p-4 font-bold text-gray-800">
                     ${(item.price * item.quantity).toFixed(2)}
@@ -98,7 +113,7 @@ export default function Cart() {
             <div className="text-lg font-semibold text-gray-700">
               Subtotal:{" "}
               <span className="text-pink-500">
-                ${calculateSubtotal().toFixed(2)}
+                ${subtotal.toFixed(2)}
               </span>
             </div>
             <button
@@ -126,16 +141,26 @@ export default function Cart() {
                 <div className="flex-1 flex flex-col gap-2">
                   <h3 className="font-semibold text-gray-800">{item.title}</h3>
                   <p className="text-gray-700 font-bold">${item.price}</p>
+                  {/* Counter Buttons */}
                   <div className="flex items-center gap-2">
-                    <input
-                      type="number"
-                      min="1"
-                      value={item.quantity}
-                      onChange={(e) =>
-                        updateQuantity(item.id, parseInt(e.target.value))
+                    <button
+                      onClick={() =>
+                        updateQuantity(item.id, item.quantity - 1)
                       }
-                      className="w-16 text-center border border-gray-300 rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-pink-500"
-                    />
+                      disabled={item.quantity <= 1}
+                      className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+                    >
+                      -
+                    </button>
+                    <span className="px-3 font-semibold">{item.quantity}</span>
+                    <button
+                      onClick={() =>
+                        updateQuantity(item.id, item.quantity + 1)
+                      }
+                      className="px-3 py-1 bg-pink-500 text-white rounded hover:bg-pink-600"
+                    >
+                      +
+                    </button>
                     <button
                       onClick={() => removeFromCart(item.id)}
                       className="text-red-500 hover:text-red-600 transition ml-auto"
@@ -151,12 +176,11 @@ export default function Cart() {
             </div>
           ))}
 
+          {/* Subtotal & Checkout (Mobile) */}
           <div className="flex flex-col gap-4 mt-4">
             <div className="text-lg font-semibold text-gray-700 text-right">
               Subtotal:{" "}
-              <span className="text-pink-500">
-                ${calculateSubtotal().toFixed(2)}
-              </span>
+              <span className="text-pink-500">${subtotal.toFixed(2)}</span>
             </div>
             <button
               onClick={() => navigate("/checkout")}

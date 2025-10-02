@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { FaHome } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import deliveryFees, { governoratesList } from "../../data/deliveryFees";
-import { cartStore } from "../../data/cartStore";
+import { cartStore } from "../../store/cartStore";
 
 export default function Checkout() {
   const { cartItems, removeFromCart } = cartStore();
@@ -29,10 +29,13 @@ export default function Checkout() {
   const deliveryFee = deliveryFees[governorate] ?? deliveryFees["default"] ?? 0;
   const total = useMemo(() => subtotal + deliveryFee, [subtotal, deliveryFee]);
 
+  // ✅ فاليديشن
   const validate = () => {
     const e = {};
-    if (!fullName.trim()) e.fullName = "Full name is required";
-    if (!phone.trim() || phone.trim().length < 7) e.phone = "Valid phone is required";
+    if (!fullName.trim() || fullName.trim().length < 3)
+      e.fullName = "Full name must be at least 3 characters";
+    if (!/^\d{10,15}$/.test(phone.trim()))
+      e.phone = "Enter a valid phone number (10-15 digits)";
     if (!addressLine.trim()) e.addressLine = "Address is required";
     if (!governorate) e.governorate = "Governorate is required";
     if (cartItems.length === 0) e.cart = "Cart is empty";
@@ -76,16 +79,17 @@ export default function Checkout() {
     };
 
     setTimeout(() => {
+      // ✅ مسح الكارت بعد الطلب
       if (typeof removeFromCart === "function") {
         cartItems.slice().forEach((it) => removeFromCart(it.id));
       }
 
-      // save order to localStorage
+      // ✅ حفظ الأوردر في localStorage
       localStorage.setItem("lastOrder", JSON.stringify(order));
 
       setSubmitting(false);
       navigate(`/order-success/${orderId}`);
-    }, 700);
+    }, 800);
   };
 
   if (cartItems.length === 0) {
@@ -102,7 +106,9 @@ export default function Checkout() {
           </nav>
 
           <h1 className="text-4xl font-bold text-pink-600 mb-6">Checkout</h1>
-          <p className="text-gray-700">Your cart is empty — add products to continue.</p>
+          <p className="text-gray-700">
+            Your cart is empty — add products to continue.
+          </p>
         </div>
       </div>
     );
@@ -120,7 +126,9 @@ export default function Checkout() {
           <span className="text-pink-600 font-semibold">Checkout</span>
         </nav>
 
-        <h1 className="text-4xl font-bold text-center text-pink-600 mb-10">Checkout</h1>
+        <h1 className="text-4xl font-bold text-center text-pink-600 mb-10">
+          Checkout
+        </h1>
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* left: form */}
@@ -128,16 +136,21 @@ export default function Checkout() {
             <div className="bg-white shadow-md rounded-2xl p-6 space-y-4">
               <h3 className="text-lg font-semibold text-gray-800">Shipping Details</h3>
 
+              {/* full name + phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block text-sm text-gray-600 mb-1">Full Name *</label>
                   <input
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className={`w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 ${
+                      errors.fullName ? "border-red-500" : "focus:ring-pink-500"
+                    }`}
                     placeholder="John Doe"
                   />
-                  {errors.fullName && <p className="text-xs text-red-500 mt-1">{errors.fullName}</p>}
+                  {errors.fullName && (
+                    <p className="text-xs text-red-500 mt-1">{errors.fullName}</p>
+                  )}
                 </div>
 
                 <div>
@@ -145,24 +158,34 @@ export default function Checkout() {
                   <input
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className={`w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 ${
+                      errors.phone ? "border-red-500" : "focus:ring-pink-500"
+                    }`}
                     placeholder="01xxxxxxxxx"
                   />
-                  {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}
+                  {errors.phone && (
+                    <p className="text-xs text-red-500 mt-1">{errors.phone}</p>
+                  )}
                 </div>
               </div>
 
+              {/* address */}
               <div>
                 <label className="block text-sm text-gray-600 mb-1">Address *</label>
                 <input
                   value={addressLine}
                   onChange={(e) => setAddressLine(e.target.value)}
-                  className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className={`w-full border rounded-lg px-3 py-2 ${
+                    errors.addressLine ? "border-red-500" : ""
+                  }`}
                   placeholder="Street / Area"
                 />
-                {errors.addressLine && <p className="text-xs text-red-500 mt-1">{errors.addressLine}</p>}
+                {errors.addressLine && (
+                  <p className="text-xs text-red-500 mt-1">{errors.addressLine}</p>
+                )}
               </div>
 
+              {/* extra address fields */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <input value={street} onChange={(e) => setStreet(e.target.value)} className="border rounded-lg px-3 py-2" placeholder="Street (Optional)" />
                 <input value={building} onChange={(e) => setBuilding(e.target.value)} className="border rounded-lg px-3 py-2" placeholder="Building (Optional)" />
@@ -180,11 +203,13 @@ export default function Checkout() {
                 </select>
               </div>
 
+              {/* notes */}
               <div>
                 <label className="block text-sm text-gray-600 mb-1">Order Notes (Optional)</label>
                 <textarea value={notes} onChange={(e) => setNotes(e.target.value)} className="w-full border rounded-lg px-3 py-2" rows={3} />
               </div>
 
+              {/* payment */}
               <div>
                 <h4 className="text-sm text-gray-600 mb-2">Payment Method</h4>
                 <div className="flex gap-3">
@@ -201,6 +226,7 @@ export default function Checkout() {
 
               {errors.cart && <p className="text-sm text-red-500">{errors.cart}</p>}
 
+              {/* place order */}
               <div className="flex justify-between items-center gap-3 pt-3">
                 <div>
                   <div className="text-sm text-gray-600">Delivery Fee</div>

@@ -1,3 +1,4 @@
+// src/pages/OrderSuccessPage.jsx
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaHome } from "react-icons/fa";
@@ -81,27 +82,16 @@ export default function OrderSuccessPage() {
                   Customer Details
                 </h3>
                 <div className="space-y-1 text-sm text-gray-700">
-                  <p>
-                    <span className="font-medium">Name: </span>
-                    {order.shipping.fullName}
-                  </p>
-                  <p>
-                    <span className="font-medium">Phone: </span>
-                    {order.shipping.phone}
-                  </p>
-                  <p>
-                    <span className="font-medium">Governorate: </span>
-                    {order.shipping.governorate}
-                  </p>
+                  <p><span className="font-medium">Name: </span>{order.shipping.fullName}</p>
+                  <p><span className="font-medium">Phone: </span>{order.shipping.phone}</p>
+                  <p><span className="font-medium">Governorate: </span>{order.shipping.governorate}</p>
                   <p>
                     <span className="font-medium">Address: </span>
-                    {order.shipping.addressLine}{" "}
-                    {order.shipping.street && `, ${order.shipping.street}`}{" "}
-                    {order.shipping.building &&
-                      `, Bldg ${order.shipping.building}`}{" "}
-                    {order.shipping.floor && `, Fl ${order.shipping.floor}`}{" "}
-                    {order.shipping.apartment &&
-                      `, Apt ${order.shipping.apartment}`}
+                    {order.shipping.addressLine}
+                    {order.shipping.street && `, ${order.shipping.street}`}
+                    {order.shipping.building && `, Bldg ${order.shipping.building}`}
+                    {order.shipping.floor && `, Fl ${order.shipping.floor}`}
+                    {order.shipping.apartment && `, Apt ${order.shipping.apartment}`}
                   </p>
                 </div>
               </div>
@@ -113,16 +103,9 @@ export default function OrderSuccessPage() {
                 </h3>
                 <ul className="text-sm space-y-2">
                   {order.items.map((it) => (
-                    <li
-                      key={it.id}
-                      className="flex justify-between text-gray-700"
-                    >
-                      <span>
-                        {it.title} × {it.quantity}
-                      </span>
-                      <span className="font-medium">
-                        {(it.price * it.quantity).toFixed(2)} EGP
-                      </span>
+                    <li key={it.id} className="flex justify-between text-gray-700">
+                      <span>{it.title} × {it.quantity}</span>
+                      <span className="font-medium">{(it.price * it.quantity).toFixed(2)} EGP</span>
                     </li>
                   ))}
                 </ul>
