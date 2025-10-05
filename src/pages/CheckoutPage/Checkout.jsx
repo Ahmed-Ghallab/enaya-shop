@@ -35,7 +35,7 @@ export default function Checkout() {
     if (!fullName.trim() || fullName.trim().length < 3)
       e.fullName = "Full name must be at least 3 characters";
     if (!/^\d{10,15}$/.test(phone.trim()))
-      e.phone = "Enter a valid phone number (10-15 digits)";
+      e.phone = "Enter a valid phone number";
     if (!addressLine.trim()) e.addressLine = "Address is required";
     if (!governorate) e.governorate = "Governorate is required";
     if (cartItems.length === 0) e.cart = "Cart is empty";

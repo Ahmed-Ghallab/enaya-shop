@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaGlobe } from "react-icons/fa";
 
 export default function LanguageSwitcher() {
-  const [lang, setLang] = useState("ar");
+  const { i18n } = useTranslation();
 
   const toggleLang = () => {
-    setLang(lang === "ar" ? "en" : "ar");
+    const newLang = i18n.language === "ar" ? "en" : "ar";
+    i18n.changeLanguage(newLang);
+    document.dir = newLang === "ar" ? "rtl" : "ltr"; // لتغيير اتجاه الصفحة تلقائيًا
   };
 
   return (
@@ -21,7 +23,7 @@ export default function LanguageSwitcher() {
       "
     >
       <FaGlobe className="text-[12px] animate-pulse" />
-      <span>{lang === "ar" ? "عربي" : "EN"}</span>
+      <span>{i18n.language === "ar" ? "عربي" : "EN"}</span>
     </button>
   );
 }

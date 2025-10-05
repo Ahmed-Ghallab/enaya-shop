@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "shop": "Shop",
+    "contact": "Contact",
+    "offer_text": "Up to 40% off Best-Selling Products From Enaya.",
+    "shop_now": "Shop Now"
+  },
+
+  "login": {
+    "welcome": "Welcome to Enaya",
+    "description": "Discover a world of beauty and care with Enaya. Sign in and start your journey today!",
+    "signinTitle": "Sign in to Enaya",
+    "email": "Email Address",
+    "password": "Password",
+    "button": "Login",
+    "createAccount": "Create Account",
+    "forgotPassword": "Forgot Password?"
+  },
+
+  "hero": {
+    "slide1": {
+      "title": "SKIN1004",
+      "subtitle": "the untouched nature CENTELLA",
+      "desc": "The Korean tradition of facial skincare",
+      "button": "Shop Now"
+    },
+    "slide2": {
+      "title": "Korean Beauty",
+      "subtitle": "BEAUTY OF JOSEON 조선미녀",
+      "desc": "Discover the finest Korean skincare & makeup, crafted with natural ingredients and innovative formulas for every skin type. Pamper your skin with premium beauty that blends tradition and modern science.",
+      "button": "Explore Now"
+    },
+    "slide3": {
+      "tag": "new arrivals",
+      "title": "Biodance Hydro Cera-nol Real Deep Mask",
+      "desc": "Deep hydration & soothing care with Hydro Cera-nol and mineral-rich glacial water — gentle even on sensitive skin",
+      "button": "Shop Now"
+    }
+  }
+}
+

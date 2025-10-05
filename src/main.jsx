@@ -3,6 +3,7 @@ import './index.css'
 import App from './App.jsx'
 import 'animate.css'
 import 'react-icons'
+import "./i18n.js"
 
 createRoot(document.getElementById('root')).render(
     <App />

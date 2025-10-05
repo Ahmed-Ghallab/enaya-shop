@@ -11,7 +11,7 @@ import ForgotPassword from "./pages/Auth/ForgotPasswordPage/ForgotPassword";
 import Logout from "./pages/Auth/LogoutPage/Logout";
 import MainLayout from "./layouts/MainLayout";
 import "./App.css";
-import ProfilePage from "./pages/Auth/ProfilePage";
+import AccountPage from "./pages/AccountPage/Account";
 import Cart from "./pages/CartPage/Cart";
 // new
 import TermsOfService from "./pages/TermsOfServicePage/TermsOfService";
@@ -20,13 +20,16 @@ import RefundPolicy from "./pages/RefundPolicyPage/RefundPolicy";
 import FAQ from "./pages/FAQPage/FAQ";
 import Checkout from "./pages/CheckoutPage/Checkout";
 import OrderSuccessPage from "./pages/OrderSuccessPage/OrderSuccessPage";
+//language i18n
+import "./i18n";
+
 
 export default function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          {/* الصفحات العادية اللي فيها Layout */}
+          {/* الصفحات    Layout */}
           <Route
             path="/"
             element={
@@ -71,7 +74,7 @@ export default function App() {
             path="/account"
             element={
               <MainLayout>
-                <ProfilePage />
+                <AccountPage />
               </MainLayout>
             }
           />

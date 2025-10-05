@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
+import { useTranslation } from "react-i18next";
+
 import logoImg from "../../assets/logo8removed.png";
 import SocialIcons from "../common/SocialIcons/Social";
 import LanguageSwitcher from "../common/LanguageSwitcher/LanguageSwitcher";
-
 import CartIcon from "../common/CartIcon/CartIcon";
 import UserMenu from "../common/UserMenu/UserMenu";
 import LiveSearch from "../common/LiveSearch/LiveSearch";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Shop", path: "/shop" },
-    { name: "Contact", path: "/contact" },
+    { name: t("nav.home"), path: "/" },
+    { name: t("nav.about"), path: "/about" },
+    { name: t("nav.shop"), path: "/shop" },
+    { name: t("nav.contact"), path: "/contact" },
   ];
 
   return (
@@ -25,10 +27,10 @@ export default function Header() {
       <div className="flex justify-between items-center top-nav text-white p-0 bg-black">
         <LanguageSwitcher />
         <p className="hidden md:block text-xs font-medium tracking-wider capitalize">
-          Up to 40% off Best-Selling Products From Enaya.
+          {t("nav.offer_text")}
           <span className="ml-2 text-pink-300 hover:text-pink-500 font-bold underline">
             <Link className="uppercase" to="/shop">
-              Shop Now
+              {t("nav.shop_now")}
             </Link>
           </span>
         </p>
@@ -55,7 +57,6 @@ export default function Header() {
                 size={24}
               />
             )}
-
             {/* Search component in mobile */}
             <LiveSearch />
           </div>
@@ -64,7 +65,7 @@ export default function Header() {
           <nav className="hidden md:flex space-x-5">
             {navLinks.map((link) => (
               <NavLink
-                key={link.name}
+                key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
                   `font-medium ${
@@ -83,11 +84,7 @@ export default function Header() {
         {/* Center Logo */}
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <Link to="/">
-            <img
-              src={logoImg}
-              alt="logo Enaya shop"
-              className="h-15 md:h-20"
-            />
+            <img src={logoImg} alt="logo Enaya shop" className="h-15 md:h-20" />
           </Link>
         </div>
 
@@ -95,7 +92,6 @@ export default function Header() {
         <div className="flex items-center space-x-4">
           <CartIcon />
           <UserMenu />
-          {/* Search only يظهر في الديسكتوب */}
           <div className="hidden md:block">
             <LiveSearch />
           </div>
@@ -108,7 +104,7 @@ export default function Header() {
           <nav className="flex flex-col space-y-2 p-4">
             {navLinks.map((link) => (
               <NavLink
-                key={link.name}
+                key={link.path}
                 to={link.path}
                 onClick={() => setMenuOpen(false)}
                 className={({ isActive }) =>
