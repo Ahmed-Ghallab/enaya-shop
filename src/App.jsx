@@ -12,7 +12,10 @@ import Logout from "./pages/Auth/LogoutPage/Logout";
 import MainLayout from "./layouts/MainLayout";
 import "./App.css";
 import AccountPage from "./pages/AccountPage/Account";
+import CategoriesPage from "./pages/CategoriesPage/CategoriesPage";
 import Cart from "./pages/CartPage/Cart";
+import Wishlist from "./pages/WishlistPage/WishlistPage";
+
 // new
 import TermsOfService from "./pages/TermsOfServicePage/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicyPage/PrivacyPolicy";
@@ -79,6 +82,14 @@ export default function App() {
             }
           />
           <Route
+            path="/categories"
+            element={
+              <MainLayout>
+                <CategoriesPage />
+              </MainLayout>
+            }
+          />
+          <Route
             path="/cart"
             element={
               <MainLayout>
@@ -86,7 +97,14 @@ export default function App() {
               </MainLayout>
             }
           />
-          {/* new */}
+          <Route
+            path="/wishlist"
+            element={
+              <MainLayout>
+                <Wishlist />
+              </MainLayout>
+            }
+          />
           <Route
             path="/terms-of-service"
             element={

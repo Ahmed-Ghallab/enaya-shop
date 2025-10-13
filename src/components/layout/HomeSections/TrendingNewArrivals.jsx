@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { products } from "../../../data/productsData";
 import ProductCard from "./ProductCard";
+import { useTranslation } from "react-i18next";
 
 export default function TrendingNewArrivals() {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState("TREND");
 
   const filteredProducts = products.filter((p) => p.badge === activeTab);
@@ -23,7 +25,9 @@ export default function TrendingNewArrivals() {
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
             >
-              {tab === "TREND" ? "Trending Products" : "New Arrivals"}
+              {tab === "TREND"
+                ? t("trendingNewArrivals.trending")
+                : t("trendingNewArrivals.new")}
             </button>
           ))}
         </div>
@@ -32,18 +36,18 @@ export default function TrendingNewArrivals() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product, index) => (
-              <motion.div
+              <Motion.div
                 key={product.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
                 <ProductCard product={product} />
-              </motion.div>
+              </Motion.div>
             ))
           ) : (
             <p className="text-center text-gray-500 col-span-full">
-              No products found for {activeTab}.
+              {t("trendingNewArrivals.noProducts", { tab: activeTab })}
             </p>
           )}
         </div>

@@ -1,23 +1,26 @@
 import { motion as Motion } from "framer-motion";
 import { FaShippingFast, FaExchangeAlt, FaLock, FaLeaf } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 export default function EnayaFeatures() {
+  const { t } = useTranslation();
+
   const features = [
-    { icon: <FaShippingFast />, title: "Fast Shipping", desc: "To your doorstep" },
-    { icon: <FaExchangeAlt />, title: "Easy Returns", desc: "Hassle-free exchange" },
-    { icon: <FaLock />, title: "Secure Payment", desc: "100% safe checkout" },
-    { icon: <FaLeaf />, title: "All Natural", desc: "trusted Original brands" },
+    { icon: <FaShippingFast />, title: t("enayaFeatures.fastShipping"), desc: t("enayaFeatures.fastShippingDesc") },
+    { icon: <FaExchangeAlt />, title: t("enayaFeatures.easyReturns"), desc: t("enayaFeatures.easyReturnsDesc") },
+    { icon: <FaLock />, title: t("enayaFeatures.securePayment"), desc: t("enayaFeatures.securePaymentDesc") },
+    { icon: <FaLeaf />, title: t("enayaFeatures.allNatural"), desc: t("enayaFeatures.allNaturalDesc") },
   ];
 
   return (
-    <section className="bg-pink-50 py-8 md:py-12 px-3 ">
+    <section className="bg-pink-50 py-8 md:py-12 px-3">
       {/* Heading */}
       <div className="text-center mb-6 md:mb-8">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 tracking-wide">
-          The Enaya Touch
+          {t("enayaFeatures.heading")}
         </h2>
         <p className="text-gray-600 mt-1 md:mt-2 text-sm md:text-base">
-          Because you deserve care & trust
+          {t("enayaFeatures.subheading")}
         </p>
       </div>
 

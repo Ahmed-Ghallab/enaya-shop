@@ -1,23 +1,31 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
+import { AiOutlineHeart, AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
 import { useTranslation } from "react-i18next";
+import { authStore } from "../../store/authStore";
+import { cartStore } from "../../store/cartStore";
+import { wishlistStore } from "../../store/wishlistStore"; // افترض وجود wishlistStore
 
 import logoImg from "../../assets/logo8removed.png";
 import SocialIcons from "../common/SocialIcons/Social";
 import LanguageSwitcher from "../common/LanguageSwitcher/LanguageSwitcher";
-import CartIcon from "../common/CartIcon/CartIcon";
-import UserMenu from "../common/UserMenu/UserMenu";
 import LiveSearch from "../common/LiveSearch/LiveSearch";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { t } = useTranslation();
+  const { isLoggedIn } = authStore();
+  const cartItems = cartStore((state) => state.cartItems);
+  const cartCount = cartItems.length;
+  const wishlistItems = wishlistStore((state) => state.wishlistItems); // عدد عناصر Wishlist
+  const wishlistCount = wishlistItems.length;
 
   const navLinks = [
     { name: t("nav.home"), path: "/" },
-    { name: t("nav.about"), path: "/about" },
     { name: t("nav.shop"), path: "/shop" },
+    { name: t("nav.categories"), path: "/categories" },
+    { name: t("nav.about"), path: "/about" },
     { name: t("nav.contact"), path: "/contact" },
   ];
 
@@ -42,8 +50,8 @@ export default function Header() {
       <div className="container mx-auto px-4 flex items-center justify-between h-14 md:h-18 relative">
         {/* Left side nav links */}
         <div className="flex items-center space-x-2 md:space-x-6">
-          {/* burger menu for mobile */}
-          <div className="md:hidden flex items-center space-x-2">
+          {/* Burger menu for mobile */}
+          <div className="md:hidden flex items-center">
             {menuOpen ? (
               <FiX
                 onClick={() => setMenuOpen(false)}
@@ -57,11 +65,9 @@ export default function Header() {
                 size={24}
               />
             )}
-            {/* Search component in mobile */}
-            <LiveSearch />
           </div>
 
-          {/* mapping Nav Links for Desktop */}
+          {/* Mapping Nav Links for Desktop */}
           <nav className="hidden md:flex space-x-5">
             {navLinks.map((link) => (
               <NavLink
@@ -90,10 +96,69 @@ export default function Header() {
 
         {/* Right Icons */}
         <div className="flex items-center space-x-4">
-          <CartIcon />
-          <UserMenu />
-          <div className="hidden md:block">
+          {/* Desktop Icons */}
+          <div className="hidden md:flex items-center space-x-4">
             <LiveSearch />
+            <NavLink
+              to="/wishlist"
+              className={({ isActive }) =>
+                `relative flex flex-col items-center transition-all duration-300 hover:scale-110 ${
+                  isActive ? "text-pink-500" : "text-gray-600 hover:text-pink-400"
+                }`
+              }
+            >
+              <AiOutlineHeart size={24} />
+              {wishlistCount > 0 && (
+                <span className="absolute -top-1 -right-2 bg-pink-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                  {wishlistCount}
+                </span>
+              )}
+            </NavLink>
+            <NavLink
+              to={isLoggedIn ? "/account" : "/auth/login"}
+              className={({ isActive }) =>
+                `relative flex flex-col items-center transition-all duration-300 hover:scale-110 ${
+                  isActive ? "text-pink-500" : "text-gray-600 hover:text-pink-400"
+                }`
+              }
+            >
+              <AiOutlineUser size={24} />
+            </NavLink>
+            <NavLink
+              to="/cart"
+              className={({ isActive }) =>
+                `relative flex flex-col items-center transition-all duration-300 hover:scale-110 ${
+                  isActive ? "text-pink-500" : "text-gray-600 hover:text-pink-400"
+                }`
+              }
+            >
+              <AiOutlineShoppingCart size={24} />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-2 bg-pink-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                  {cartCount}
+                </span>
+              )}
+            </NavLink>
+          </div>
+
+          {/* Mobile Icons */}
+          <div className="md:hidden flex items-center space-x-4">
+            <LiveSearch />
+            <NavLink
+              to="/wishlist"
+              className={({ isActive }) =>
+                `relative flex flex-col items-center transition-all duration-300 hover:scale-110 ${
+                  isActive ? "text-pink-500" : "text-gray-600 hover:text-pink-400"
+                }`
+              }
+            >
+              <AiOutlineHeart size={24} />
+              {wishlistCount > 0 && (
+                <span className="absolute -top-1 -right-2 bg-pink-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                  {wishlistCount}
+                </span>
+              )}
+            </NavLink>
           </div>
         </div>
       </div>

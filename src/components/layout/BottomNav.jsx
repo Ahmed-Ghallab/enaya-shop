@@ -1,27 +1,28 @@
-import { AiOutlineHome, AiOutlineShoppingCart, AiOutlineUser, AiOutlineTag } from "react-icons/ai";
+import { AiOutlineHome, AiOutlineShoppingCart, AiOutlineUser, AiOutlineAppstore } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import { authStore } from "../../store/authStore";
+import { cartStore } from "../../store/cartStore";
 
 export default function BottomNav() {
-  const { isLoggedIn, cartCount, notificationsCount } = authStore(); 
-  // افترضنا أن authStore فيه عدد المنتجات في الكارت وعدد الإشعارات للحساب
+  const { isLoggedIn } = authStore();
+  const cartItems = cartStore((state) => state.cartItems);
+  const cartCount = cartItems.length; // عدد المنتجات في السلة
 
   const navItems = [
     { id: "home", label: "Home", icon: <AiOutlineHome size={24} />, path: "/" },
+    { id: "categories", label: "Categories", icon: <AiOutlineAppstore size={24} />, path: "/categories" },
     { 
       id: "cart", 
       label: "Cart", 
       icon: <AiOutlineShoppingCart size={24} />, 
       path: "/cart",
-      badge: cartCount // عدد المنتجات في الكارت
+      badge: cartCount
     },
-    { id: "deals", label: "Deals", icon: <AiOutlineTag size={24} />, path: "/shop" },
     { 
       id: "account", 
       label: "Account", 
       icon: <AiOutlineUser size={24} />, 
-      path: isLoggedIn ? "/account" : "/auth/login",
-      badge: notificationsCount // عدد الإشعارات للحساب
+      path: isLoggedIn ? "/account" : "/auth/login"
     },
   ];
 
@@ -40,7 +41,7 @@ export default function BottomNav() {
         >
           {item.icon}
 
-          {/* Badge */}
+          {/* 🔴 Badge فوق الكارت */}
           {item.badge > 0 && (
             <span className="absolute -top-1 -right-2 bg-pink-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
               {item.badge}

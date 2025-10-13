@@ -1,41 +1,41 @@
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import imgAbout1 from "../../assets/home/kSecretImg.jpg";
 import imgAbout2 from "../../assets/home/skin-carebanner-design.webp";
 import BrandsSlider from "../../components/layout/BrandsSlider";
 import EnayaFeatures from "../../components/layout/EnayaFeatures";
-import { FaWhatsapp } from "react-icons/fa";
 
 export default function About() {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-gradient-to-b from-pink-50 to-white py-16 px-4">
       <div className="container mx-auto my-5">
         {/* breadcrumbs */}
-        <nav className="text-sm text-gray-500 mb-6 flex items-center justify-center md:justify-start space-x-2">
+        <nav className="text-sm text-gray-500 mb-6 flex items-center justify-center md:justify-start space-x-2 rtl:space-x-reverse">
           <Link
             to="/"
             className="flex items-center gap-1 hover:text-pink-600 transition"
           >
             <FaHome className="text-pink-500" />
-            <span>Home</span>
+            <span>{t("about.breadcrumbs.home")}</span>
           </Link>
           <span>/</span>
-          <span className="text-pink-600 font-semibold">About</span>
+          <span className="text-pink-600 font-semibold">{t("about.breadcrumbs.about")}</span>
         </nav>
 
         {/* العنوان */}
         <h1 className="text-4xl font-bold text-center text-pink-600 mb-12">
-          About Us
+          {t("about.title")}
         </h1>
 
         {/* سكشن 1 */}
         <section className="mb-16 text-center">
           <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
-            Welcome to{" "}
-            <span className="font-semibold text-pink-600">عناية</span> – your
-            trusted destination for premium skincare and body care products. We
-            provide high-quality, natural, and effective products that nourish
-            your skin and body, while promoting overall well-being.
+            {t("about.intro.text1")}{" "}
+            <span className="font-semibold text-pink-600">{t("about.brandName")}</span>{" "}
+            {t("about.intro.text2")}
           </p>
         </section>
 
@@ -43,19 +43,16 @@ export default function About() {
         <section className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-              Our Mission
+              {t("about.mission.title")}
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              Our vision is to deliver skincare and body care solutions backed
-              by science, clinically tested for safety and effectiveness. We
-              tailor products to individual needs, using natural ingredients and
-              innovative technology for the best results.
+              {t("about.mission.text")}
             </p>
           </div>
           <div>
             <img
               src={imgAbout1}
-              alt="Our Mission"
+              alt={t("about.mission.alt")}
               className="rounded-2xl shadow-xl border border-pink-100"
             />
           </div>
@@ -66,19 +63,16 @@ export default function About() {
           <div className="order-2 md:order-1">
             <img
               src={imgAbout2}
-              alt="Our Community"
+              alt={t("about.community.alt")}
               className="rounded-2xl shadow-xl border border-pink-100"
             />
           </div>
           <div className="order-1 md:order-2">
             <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-              Our Community
+              {t("about.community.title")}
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              Since our launch, we’ve built a growing community of skincare and
-              beauty lovers. We stay connected through tutorials, product
-              launches, giveaways, and events – creating a space where beauty
-              meets care and confidence.
+              {t("about.community.text")}
             </p>
           </div>
         </section>
@@ -86,18 +80,16 @@ export default function About() {
         {/* سكشن 4 */}
         <section className="text-center bg-white rounded-2xl shadow-lg border border-pink-400 p-10">
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-            Why Choose Us?
+            {t("about.whyChoose.title")}
           </h2>
           <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto">
-            At <span className="font-semibold text-pink-600">عناية</span>, we
-            pay attention to every detail – from product selection to packaging
-            – ensuring you get the best possible beauty experience. You’re not
-            just buying products, you’re joining a family that truly cares about
-            you.
+            {t("about.whyChoose.text1")}{" "}
+            <span className="font-semibold text-pink-600">{t("about.brandName")}</span>
+            {t("about.whyChoose.text2")}
           </p>
         </section>
 
-        {/* واتساب  */}
+        {/* واتساب */}
         <a
           href="https://wa.me/201279547848"
           target="_blank"
@@ -107,6 +99,7 @@ export default function About() {
           <FaWhatsapp size={32} />
         </a>
       </div>
+
       <EnayaFeatures />
       <BrandsSlider />
     </div>

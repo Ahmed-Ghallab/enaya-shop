@@ -4,6 +4,7 @@
     "about": "About",
     "shop": "Shop",
     "contact": "Contact",
+    "categories": "Categories",
     "offer_text": "Up to 40% off Best-Selling Products From Enaya.",
     "shop_now": "Shop Now"
   },
@@ -38,6 +39,181 @@
       "desc": "Deep hydration & soothing care with Hydro Cera-nol and mineral-rich glacial water — gentle even on sensitive skin",
       "button": "Shop Now"
     }
+  },
+
+  "care": {
+    "section_title": "Care Categories",
+    "section_subtitle": "Choose your favorite category from our care collections ✨",
+    "hair": "Hair Care",
+    "face": "Face Care",
+    "body": "Body Care",
+    "foot": "Foot Care"
+  },
+  "deals": {
+    "section_title": "Hot Deals & Discounts",
+    "no_deals": "No deals available."
+  },
+  "salesBanners": {
+    "kSecretAlt": "K-Secret New Arrival",
+    "kSecretBadge": "Top Selling",
+    "kSecretTitle": "K-Secret",
+    "kSecretDesc": "Discover the freshest trends in Korean beauty and skincare.",
+    "shopNow": "Shop Now",
+
+    "medicubeAlt": "Medicube Top Selling",
+    "medicubeBadge": "New Arrival",
+    "medicubeTitle": "Medicube",
+    "medicubeDesc": "Explore our best-selling skincare loved by thousands worldwide.",
+    "shopBestsellers": "Shop Bestsellers"
+  },
+  "bigSaleBanner": {
+    "big": "Big",
+    "sale": "Sale",
+    "upTo": "Up to",
+    "off": "Off",
+    "description": "Don’t miss out on Enaya biggest sale of the season!"
+  },
+  "trendingNewArrivals": {
+    "trending": "Trending Products",
+    "new": "New Arrivals",
+    "noProducts": "No products found for {{tab}}."
+  },
+  "enayaFeatures": {
+    "heading": "The Enaya Touch",
+    "subheading": "Because you deserve care & trust",
+    "fastShipping": "Fast Shipping",
+    "fastShippingDesc": "To your doorstep",
+    "easyReturns": "Easy Returns",
+    "easyReturnsDesc": "Hassle-free exchange",
+    "securePayment": "Secure Payment",
+    "securePaymentDesc": "100% safe checkout",
+    "allNatural": "All Natural",
+    "allNaturalDesc": "Trusted Original brands"
+  },
+  "shopCollection": {
+    "title": " Shop the Collection"
+  },
+  "brandsSlider": {
+    "title": "Shop by Brand",
+    "brandAlt": "Brand"
+  },
+
+  "footer": {
+    "enaya": {
+      "title": "Enaya",
+      "links": {
+        "home": "Home",
+        "about": "About",
+        "shop": "Shop",
+        "contact": "Contact"
+      }
+    },
+    "support": {
+      "title": "Support",
+      "links": {
+        "terms": "Terms of Service",
+        "privacy": "Privacy Policy",
+        "refund": "Refund Policy",
+        "faq": "FAQ"
+      }
+    },
+    "logoAlt": "Enaya Logo",
+    "description": "Enaya is more than beauty – it’s a lifestyle. Discover curated skincare & cosmetics that bring elegance, care, and confidence to your daily routine.",
+    "rights": "All rights reserved."
+  },
+
+  "about": {
+    "breadcrumbs": {
+      "home": "Home",
+      "about": "About"
+    },
+    "title": "About Us",
+    "brandName": "Enaya",
+    "intro": {
+      "text1": "Welcome to",
+      "text2": "– your trusted destination for premium skincare and body care products. We provide high-quality, natural, and effective products that nourish your skin and body while promoting overall well-being."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "text": "Our vision is to deliver skincare and body care solutions backed by science, clinically tested for safety and effectiveness. We tailor products to individual needs, using natural ingredients and innovative technology for the best results.",
+      "alt": "Our Mission"
+    },
+    "community": {
+      "title": "Our Community",
+      "text": "Since our launch, we’ve built a growing community of skincare and beauty lovers. We stay connected through tutorials, product launches, giveaways, and events – creating a space where beauty meets care and confidence.",
+      "alt": "Our Community"
+    },
+    "whyChoose": {
+      "title": "Why Choose Us?",
+      "text1": "At",
+      "text2": ", we pay attention to every detail – from product selection to packaging – ensuring you get the best possible beauty experience. You’re not just buying products; you’re joining a family that truly cares about you."
+    }
+  },
+  "contact": {
+    "breadcrumbHome": "Home",
+    "breadcrumbContact": "Contact",
+    "title": "Contact Us",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Enter your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Write your message...",
+      "button": "Send Message"
+    },
+    "info": {
+      "heading": "Get in Touch",
+      "paragraph": "We’re here to answer your questions and help you with your skincare and beauty needs. Reach out via email, phone, or connect with us on social media for updates and offers.",
+      "email": "📧 Email:",
+      "phone": "📞 Phone:",
+      "phoneValue": "+20 127 954 7848",
+      "address": "📍 Address:",
+      "addressValue": "Alexandria, Egypt"
+    },
+    "whatsapp": "Chat with us on WhatsApp"
+  },
+
+
+  "categories": {
+    "title": "Categories",
+    "subtitle": "Discover our curated range of beauty essentials",
+    "menu": "Categories Menu",
+    "shop_by_category": "Shop by Category",
+    "shop_by_brand": "Shop by Brand",
+    "brands_title": "Shop by Brand",
+    "skincare": "Skincare",
+    "makeup": "Makeup",
+    "body_care": "Body Care",
+    "hair_care": "Hair Care",
+    "accessories_tools": "Accessories & Tools",
+    "supplements": "Supplements"
+  },
+  "subcategories": {
+    "masks": "Masks",
+    "moisturizer": "Moisturizer",
+    "cleanser": "Cleanser",
+    "suncare": "Suncare",
+    "face_makeup": "Face Makeup",
+    "eye_makeup": "Eye Makeup",
+    "lip_makeup": "Lip Makeup",
+    "nails": "Nails",
+    "body_lotion_oils": "Body Lotion & Oils",
+    "body_wash": "Body Wash",
+    "body_scrub": "Body Scrub",
+    "hand_foot_oral_care": "Hand, Foot & Oral Care",
+    "body_mist_fragrance": "Body Mist & Fragrance",
+    "shampoo_conditioner": "Shampoo & Conditioner",
+    "hair_treatment": "Hair Treatment",
+    "hair_essence_serum": "Hair Essence & Serum",
+    "hair_color_styling": "Hair Color & Styling",
+    "cotton_pad": "Cotton Pad",
+    "beauty_device": "Beauty Device",
+    "brush": "Brush",
+    "others": "Others",
+    "vitamins": "Vitamins",
+    "probiotics": "Probiotics",
+    "collagen": "Collagen",
+    "diet_supplements": "Diet Supplements"
   }
 }
-
