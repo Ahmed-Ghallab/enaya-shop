@@ -30,104 +30,6 @@ It delivers a seamless shopping experience with elegant UI, smart state manageme
 
 ---
 
-## 🧱 Project Structure
-
-```
-public/
-  vite.svg
-
-src/
-  App.jsx
-  App.css
-  i18n.js
-  index.css
-  main.jsx
-
-  api/
-    auth.js
-    cart.js
-    products.js
-    services.js
-
-  assets/
-    (images, brand logos, home banners, product visuals...)
-
-  components/
-    common/
-      CartIcon/
-      LanguageSwitcher/
-      LiveSearch/
-      ShopNowButton/
-      SocialIcons/
-      UserMenu/
-    layout/
-      Header.jsx
-      Footer.jsx
-      HeroSection.jsx
-      BigSaleBanner.jsx
-      SalesBanners.jsx
-      BrandsSlider.jsx
-      CareCategories.jsx
-      EnayaFeatures.jsx
-      BottomNav.jsx
-      HomeSections/
-        DealsSection.jsx
-        ProductCard.jsx
-        ProductGrid.jsx
-        QuickViewModal.jsx
-        ShopCollection.jsx
-        TrendingNewArrivals.jsx
-    ui/
-
-  data/
-    cartStore.js
-    deliveryFees.js
-    productsData.js
-
-  layouts/
-    MainLayout.jsx
-    AuthLayout.jsx
-
-  locales/
-    en.json
-    ar.json
-
-  pages/
-    AboutPage/
-    AccountPage/
-    Auth/
-      LoginPage/
-      RegisterPage/
-      ForgotPasswordPage/
-      LogoutPage/
-    CartPage/
-    CategoriesPage/
-    CheckoutPage/
-    ContactPage/
-    FAQPage/
-    HomePage/
-    OrderSuccessPage/
-    PrivacyPolicyPage/
-    ProductPage/
-    RefundPolicyPage/
-    ShopPage/
-    TermsOfServicePage/
-    WishlistPage/
-
-  routes/
-    AppRoutes.jsx
-
-  store/
-    authStore.js
-    cartStore.js
-    productStore.js
-    wishlistStore.js
-
-  utils/
-```
-
----
-
 ## ✨ Key Features
 
 - 🏠 **Dynamic Home Page:** banners, sliders, trending sections, and product grids  
@@ -159,9 +61,7 @@ src/
 ---
 
 ## 🖼️ Project Logo
-> (Place the logo here once selected)  
-> Example:  
-> `![Enaya Logo](src/assets/newlogo.jpeg)`
+> ![Enaya Logo](src/assets/newlogo.jpeg)
 
 ---
 
@@ -179,6 +79,6 @@ Unauthorized use, reproduction, or distribution is prohibited.
 **Role:** Front-End Developer  
 **GitHub:** [Ahmed-Ghallab](https://github.com/Ahmed-Ghallab)  
 **LinkedIn:** [Ahmed Ghallab](https://www.linkedin.com/in/ahmedghallab22/)  
-**Email:** *[ahghallab1@gmail.com]*
+**Email:** *ahghallab1@gmail.com*
 
 ---
