@@ -8,6 +8,12 @@
     "offer_text": "Up to 40% off Best-Selling Products From Enaya.",
     "shop_now": "Shop Now"
   },
+  "bottomNav": {
+  "home": "Home",
+  "categories": "Categories",
+  "cart": "Cart",
+  "account": "Account"
+},
 
   "login": {
     "welcome": "Welcome to Enaya",

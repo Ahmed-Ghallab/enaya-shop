@@ -209,38 +209,77 @@ export default function Checkout() {
                 <textarea value={notes} onChange={(e) => setNotes(e.target.value)} className="w-full border rounded-lg px-3 py-2" rows={3} />
               </div>
 
-              {/* payment */}
-              <div>
-                <h4 className="text-sm text-gray-600 mb-2">Payment Method</h4>
-                <div className="flex gap-3">
-                  <label className={`px-3 py-2 rounded-lg border ${paymentMethod === "cod" ? "border-pink-500 bg-pink-50" : "border-gray-200"}`}>
-                    <input type="radio" name="pm" value="cod" checked={paymentMethod === "cod"} onChange={() => setPaymentMethod("cod")} className="mr-2" />
-                    Cash on Delivery
-                  </label>
-                  <label className={`px-3 py-2 rounded-lg border ${paymentMethod === "online" ? "border-pink-500 bg-pink-50" : "border-gray-200"}`}>
-                    <input type="radio" name="pm" value="online" checked={paymentMethod === "online"} onChange={() => setPaymentMethod("online")} className="mr-2" />
-                    Online Payment (Soon)
-                  </label>
-                </div>
-              </div>
+{/* payment */}
+<div>
+  <h4 className="text-sm text-gray-600 mb-2">Payment Method</h4>
+  <div className="flex gap-3">
+    {/* ✅ Cash on Delivery */}
+    <label
+      className={`px-3 py-2 rounded-lg border cursor-pointer ${
+        paymentMethod === "cod"
+          ? "border-pink-500 bg-pink-50"
+          : "border-gray-200 hover:border-pink-300"
+      }`}
+    >
+      <input
+        type="radio"
+        name="pm"
+        value="cod"
+        checked={paymentMethod === "cod"}
+        onChange={() => setPaymentMethod("cod")}
+        className="mr-2 accent-pink-500"
+      />
+      Cash on Delivery
+    </label>
 
-              {errors.cart && <p className="text-sm text-red-500">{errors.cart}</p>}
+    {/* 🚫 Online Payment (Disabled) */}
+    <label
+      className={`px-3 py-2 rounded-lg border opacity-60 cursor-not-allowed ${
+        paymentMethod === "online" ? "border-pink-400 bg-pink-50" : "border-gray-200"
+      }`}
+      title="Online payment will be available soon"
+    >
+      <input
+        type="radio"
+        name="pm"
+        value="online"
+        disabled
+        onChange={() => setPaymentMethod("online")}
+        className="mr-2 accent-pink-500"
+      />
+      Online Payment (Soon)
+    </label>
+  </div>
+</div>
 
-              {/* place order */}
-              <div className="flex justify-between items-center gap-3 pt-3">
-                <div>
-                  <div className="text-sm text-gray-600">Delivery Fee</div>
-                  <div className="text-lg font-semibold text-gray-800">{deliveryFee.toFixed(2)} EGP</div>
-                </div>
+{errors.cart && <p className="text-sm text-red-500">{errors.cart}</p>}
 
-                <button
-                  disabled={submitting}
-                  onClick={placeOrder}
-                  className="ml-auto bg-pink-500 disabled:opacity-50 text-white py-2 px-5 rounded-lg hover:bg-pink-600 transition"
-                >
-                  {submitting ? "Processing..." : "Place Order"}
-                </button>
-              </div>
+{/* ✅ place order */}
+<div className="flex justify-between items-center gap-3 pt-3">
+  <div>
+    <div className="text-sm text-gray-600">Delivery Fee</div>
+    <div className="text-lg font-semibold text-gray-800">
+      {deliveryFee.toFixed(2)} EGP
+    </div>
+  </div>
+
+  <button
+    disabled={submitting}
+    onClick={() => {
+      // 🟢 تأكيد قبل تنفيذ الطلب
+      const confirmOrder = window.confirm(
+        "هل أنت متأكد من رغبتك في تنفيذ الطلب؟"
+      );
+      if (confirmOrder) {
+        placeOrder();
+      }
+    }}
+    className="ml-auto bg-pink-500 disabled:opacity-50 text-white py-2 px-5 rounded-lg hover:bg-pink-600 transition"
+  >
+    {submitting ? "Processing..." : "Place Order"}
+  </button>
+</div>
+
             </div>
           </div>
 

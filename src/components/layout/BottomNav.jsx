@@ -1,28 +1,45 @@
-import { AiOutlineHome, AiOutlineShoppingCart, AiOutlineUser, AiOutlineAppstore } from "react-icons/ai";
+import {
+  AiOutlineHome,
+  AiOutlineShoppingCart,
+  AiOutlineUser,
+  AiOutlineAppstore,
+} from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import { authStore } from "../../store/authStore";
 import { cartStore } from "../../store/cartStore";
+import { useTranslation } from "react-i18next";
 
 export default function BottomNav() {
+  const { t } = useTranslation();
   const { isLoggedIn } = authStore();
   const cartItems = cartStore((state) => state.cartItems);
-  const cartCount = cartItems.length; // عدد المنتجات في السلة
+  const cartCount = cartItems.length;
 
   const navItems = [
-    { id: "home", label: "Home", icon: <AiOutlineHome size={24} />, path: "/" },
-    { id: "categories", label: "Categories", icon: <AiOutlineAppstore size={24} />, path: "/categories" },
-    { 
-      id: "cart", 
-      label: "Cart", 
-      icon: <AiOutlineShoppingCart size={24} />, 
-      path: "/cart",
-      badge: cartCount
+    {
+      id: "home",
+      label: t("bottomNav.home"),
+      icon: <AiOutlineHome size={24} />,
+      path: "/",
     },
-    { 
-      id: "account", 
-      label: "Account", 
-      icon: <AiOutlineUser size={24} />, 
-      path: isLoggedIn ? "/account" : "/auth/login"
+    {
+      id: "categories",
+      label: t("bottomNav.categories"),
+      icon: <AiOutlineAppstore size={24} />,
+      path: "/categories",
+    },
+    {
+      id: "cart",
+      label: t("bottomNav.cart"),
+      icon: <AiOutlineShoppingCart size={24} />,
+      path: "/cart",
+      badge: cartCount,
+    },
+    {
+      id: "account",
+      label: t("bottomNav.account"),
+      icon: <AiOutlineUser size={24} />,
+      path: isLoggedIn ? "/account" : "/auth/login",
     },
   ];
 
@@ -35,7 +52,9 @@ export default function BottomNav() {
           end
           className={({ isActive }) =>
             `relative flex flex-col items-center transition-all duration-300 hover:scale-110 ${
-              isActive ? "text-pink-500" : "text-gray-600 hover:text-pink-400"
+              isActive
+                ? "text-pink-500"
+                : "text-gray-600 hover:text-pink-400"
             }`
           }
         >

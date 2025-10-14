@@ -26,7 +26,6 @@ import OrderSuccessPage from "./pages/OrderSuccessPage/OrderSuccessPage";
 //language i18n
 import "./i18n";
 
-
 export default function App() {
   return (
     <div className="App">

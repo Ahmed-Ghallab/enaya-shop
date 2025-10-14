@@ -1,15 +1,26 @@
 import { FaTrash, FaHome } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { cartStore } from "../../store/cartStore";
+import { toast } from "react-toastify";
 
 export default function Cart() {
-  // 🟢 جلب القيم من Zustand
   const cartItems = cartStore((state) => state.cartItems);
   const removeFromCart = cartStore((state) => state.removeFromCart);
   const updateQuantity = cartStore((state) => state.updateQuantity);
-  const subtotal = cartStore((state) => state.subtotal()); // ✅ استدعاء الفانكشن
-
+  const subtotal = cartStore((state) => state.subtotal());
   const navigate = useNavigate();
+
+  const handleRemove = (id) => {
+    if (window.confirm("هل أنت متأكد من حذف هذا المنتج من السلة؟")) {
+      removeFromCart(id);
+      toast.info("تم حذف المنتج من السلة ");
+    }
+  };
+
+  const handleCheckout = () => {
+    toast.success("جاري الانتقال إلى صفحة الدفع ", { autoClose: 2000,  pauseOnHover: false, closeOnClick: true, });
+    navigate("/checkout");
+  };
 
   if (cartItems.length === 0)
     return (
@@ -68,7 +79,6 @@ export default function Cart() {
                   </td>
                   <td className="p-4 text-gray-700">${item.price}</td>
                   <td className="p-4">
-                    {/* Counter Buttons */}
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() =>
@@ -97,7 +107,7 @@ export default function Cart() {
                   </td>
                   <td className="p-4">
                     <button
-                      onClick={() => removeFromCart(item.id)}
+                      onClick={() => handleRemove(item.id)}
                       className="text-red-500 hover:text-red-600 transition"
                     >
                       <FaTrash />
@@ -112,12 +122,10 @@ export default function Cart() {
           <div className="flex justify-between items-center p-6 border-t border-gray-200">
             <div className="text-lg font-semibold text-gray-700">
               Subtotal:{" "}
-              <span className="text-pink-500">
-                ${subtotal.toFixed(2)}
-              </span>
+              <span className="text-pink-500">${subtotal.toFixed(2)}</span>
             </div>
             <button
-              onClick={() => navigate("/checkout")}
+              onClick={handleCheckout}
               className="bg-pink-500 text-white py-2 px-6 rounded-lg hover:bg-pink-600 transition"
             >
               Proceed to Checkout
@@ -141,7 +149,6 @@ export default function Cart() {
                 <div className="flex-1 flex flex-col gap-2">
                   <h3 className="font-semibold text-gray-800">{item.title}</h3>
                   <p className="text-gray-700 font-bold">${item.price}</p>
-                  {/* Counter Buttons */}
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() =>
@@ -162,7 +169,7 @@ export default function Cart() {
                       +
                     </button>
                     <button
-                      onClick={() => removeFromCart(item.id)}
+                      onClick={() => handleRemove(item.id)}
                       className="text-red-500 hover:text-red-600 transition ml-auto"
                     >
                       <FaTrash />
@@ -183,7 +190,7 @@ export default function Cart() {
               <span className="text-pink-500">${subtotal.toFixed(2)}</span>
             </div>
             <button
-              onClick={() => navigate("/checkout")}
+              onClick={handleCheckout}
               className="bg-pink-500 text-white py-2 rounded-lg hover:bg-pink-600 transition w-full"
             >
               Proceed to Checkout

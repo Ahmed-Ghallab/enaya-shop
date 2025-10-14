@@ -13,23 +13,68 @@ export default function Footer() {
       <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-3 gap-10 text-center md:text-left">
         {/* Enaya Links */}
         <div>
-          <h3 className="font-bold text-lg text-gray-900">{t("footer.enaya.title")}</h3>
+          <h3 className="font-bold text-lg text-gray-900">
+            {t("footer.enaya.title")}
+          </h3>
           <ul className="space-y-2">
-            <li><Link to="/" className="hover:text-pink-500 transition">{t("footer.enaya.links.home")}</Link></li>
-            <li><Link to="/about" className="hover:text-pink-500 transition">{t("footer.enaya.links.about")}</Link></li>
-            <li><Link to="/shop" className="hover:text-pink-500 transition">{t("footer.enaya.links.shop")}</Link></li>
-            <li><Link to="/contact" className="hover:text-pink-500 transition">{t("footer.enaya.links.contact")}</Link></li>
+            <li>
+              <Link to="/" className="hover:text-pink-500 transition">
+                {t("footer.enaya.links.home")}
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="hover:text-pink-500 transition">
+                {t("footer.enaya.links.about")}
+              </Link>
+            </li>
+            <li>
+              <Link to="/shop" className="hover:text-pink-500 transition">
+                {t("footer.enaya.links.shop")}
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" className="hover:text-pink-500 transition">
+                {t("footer.enaya.links.contact")}
+              </Link>
+            </li>
           </ul>
         </div>
 
         {/* Support Links */}
         <div>
-          <h3 className="font-bold text-lg text-gray-900">{t("footer.support.title")}</h3>
+          <h3 className="font-bold text-lg text-gray-900">
+            {t("footer.support.title")}
+          </h3>
           <ul className="space-y-2">
-            <li><Link to="/terms-of-service" className="hover:text-pink-500 transition">{t("footer.support.links.terms")}</Link></li>
-            <li><Link to="/privacy-policy" className="hover:text-pink-500 transition">{t("footer.support.links.privacy")}</Link></li>
-            <li><Link to="/refund-policy" className="hover:text-pink-500 transition">{t("footer.support.links.refund")}</Link></li>
-            <li><Link to="/faq" className="hover:text-pink-500 transition">{t("footer.support.links.faq")}</Link></li>
+            <li>
+              <Link
+                to="/terms-of-service"
+                className="hover:text-pink-500 transition"
+              >
+                {t("footer.support.links.terms")}
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/privacy-policy"
+                className="hover:text-pink-500 transition"
+              >
+                {t("footer.support.links.privacy")}
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/refund-policy"
+                className="hover:text-pink-500 transition"
+              >
+                {t("footer.support.links.refund")}
+              </Link>
+            </li>
+            <li>
+              <Link to="/faq" className="hover:text-pink-500 transition">
+                {t("footer.support.links.faq")}
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -44,7 +89,17 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="mt-6 border-t border-gray-200 pt-4 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} <span className="font-semibold text-pink-600">Enaya</span>. {t("footer.rights")}
+        © {new Date().getFullYear()}{" "}
+        <span className="font-semibold text-pink-600">Enaya</span>. by{" "}
+        <a
+          href="https://www.linkedin.com/in/ahmedghallab22/"
+          target="_blank"
+          rel="noopener noreferrer" // to prevent leaking the referrer information & improve privacy & security & prevent sending the HTTP Referer header
+          className="font-medium text-pink-600 hover:text-pink-900 transition-colors duration-300 underline"
+        >
+          Ahmed Ghallab
+        </a>{" "}
+        {t("footer.rights")}
       </div>
     </footer>
   );

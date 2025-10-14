@@ -1,15 +1,33 @@
-import { FaTrash, FaHome, FaHeart } from "react-icons/fa";
+import { FaTrash, FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { wishlistStore } from "../../store/wishlistStore";
 import { cartStore } from "../../store/cartStore";
+import { toast } from "react-toastify";
 
 export default function WishlistPage() {
-  // 🟢 Zustand stores
   const wishlistItems = wishlistStore((state) => state.wishlistItems);
   const removeFromWishlist = wishlistStore((state) => state.removeFromWishlist);
   const clearWishlist = wishlistStore((state) => state.clearWishlist);
   const addToCart = cartStore((state) => state.addToCart);
 
+  const handleRemove = (id) => {
+    if (window.confirm("هل أنت متأكد من حذف هذا المنتج من المفضلة؟")) {
+      removeFromWishlist(id);
+      toast.info("تم حذف المنتج من المفضلة ");
+    }
+  };
+
+  const handleClearAll = () => {
+    if (window.confirm("هل تريد حذف جميع المنتجات من المفضلة؟")) {
+      clearWishlist();
+      toast.error("تم حذف جميع المنتجات من المفضلة ");
+    }
+  };
+
+  const handleAddToCart = (item) => {
+    addToCart(item);
+    toast.success("تمت إضافة المنتج إلى السلة ");
+  };
 
   if (wishlistItems.length === 0)
     return (
@@ -42,7 +60,7 @@ export default function WishlistPage() {
             Your Wishlist
           </h1>
           <button
-            onClick={clearWishlist}
+            onClick={handleClearAll}
             className="text-red-500 text-sm font-semibold hover:text-red-600 transition"
           >
             Clear All
@@ -75,13 +93,13 @@ export default function WishlistPage() {
                   <td className="p-4 text-gray-700">${item.price}</td>
                   <td className="p-4 flex items-center gap-3">
                     <button
-                      onClick={() => addToCart(item)}
+                      onClick={() => handleAddToCart(item)}
                       className="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600 transition"
                     >
                       Add to Cart
                     </button>
                     <button
-                      onClick={() => removeFromWishlist(item.id)}
+                      onClick={() => handleRemove(item.id)}
                       className="text-red-500 hover:text-red-600 transition"
                     >
                       <FaTrash />
@@ -111,14 +129,14 @@ export default function WishlistPage() {
                   <p className="text-gray-700 font-bold">${item.price}</p>
                 </div>
                 <button
-                  onClick={() => removeFromWishlist(item.id)}
+                  onClick={() => handleRemove(item.id)}
                   className="text-red-500 hover:text-red-600 transition"
                 >
                   <FaTrash />
                 </button>
               </div>
               <button
-                onClick={() => addToCart(item)}
+                onClick={() => handleAddToCart(item)}
                 className="bg-pink-500 text-white py-2 rounded-lg hover:bg-pink-600 transition"
               >
                 Add to Cart
