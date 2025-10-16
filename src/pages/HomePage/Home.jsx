@@ -8,6 +8,7 @@ import ProductGrid from "../../components/layout/HomeSections/ProductGrid";
 import TrendingNewArrivals from "../../components/layout/HomeSections/TrendingNewArrivals";
 import DealsSection from "../../components/layout/HomeSections/DealsSection";
 import ShopCollection from "../../components/layout/HomeSections/ShopCollection";
+import AnimatedCategoriesSection from "../../components/layout/HomeSections/AnimatedCategoriesSection";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <DealsSection />
       <SalesBanners />
       <BigSaleBanner />
+      <AnimatedCategoriesSection />
       <TrendingNewArrivals />
       <EnayaFeatures />
       <ShopCollection />

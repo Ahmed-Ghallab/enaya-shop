@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaHome, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import skincareIMG from "../../assets/careCategories/BodyCare.webp"
-import makeupIMG from "../../assets/careCategories/makeup.jpg"
-import bodyCareIMG from "../../assets/careCategories/FootCare.webp"
-import hairCareIMG from "../../assets/careCategories/HairCare.webp"
-import accessoriesIMG from "../../assets/careCategories/Accessories&Tools.jpg"
-import supplementsIMG from "../../assets/careCategories/Supplements.jpg"
+import skincareIMG from "../../assets/careCategories/BodyCare.png";
+import makeupIMG from "../../assets/careCategories/Makeup.jpg";
+import bodyCareIMG from "../../assets/careCategories/FootCare.webp";
+import hairCareIMG from "../../assets/careCategories/HairCare.png";
+import accessoriesIMG from "../../assets/careCategories/Accessories&Tools.jpg";
+import supplementsIMG from "../../assets/careCategories/SupplementsN.jpg";
 
 import logo1 from "../../assets/BrandLogos/Anua.png";
 import logo2 from "../../assets/BrandLogos/beauty of joseon-Photoroom2.png";
@@ -19,10 +19,6 @@ import logo7 from "../../assets/BrandLogos/medicube-Photoroom.png";
 import logo8 from "../../assets/BrandLogos/dr-Photoroom.png";
 // import logo9 from "../../assets/BrandLogos/mary&may-Photoroom.png";
 // import logo10 from "../../assets/BrandLogos/biodance-Photoroom.png";
-
-
-
-
 
 export default function CategoriesPage() {
   const { t } = useTranslation();
@@ -38,10 +34,22 @@ export default function CategoriesPage() {
       name: t("categories.skincare"),
       image: skincareIMG,
       subcategories: [
-        { name: t("subcategories.masks"), path: "/shop?category=skincare&sub=masks" },
-        { name: t("subcategories.moisturizer"), path: "/shop?category=skincare&sub=moisturizer" },
-        { name: t("subcategories.cleanser"), path: "/shop?category=skincare&sub=cleanser" },
-        { name: t("subcategories.suncare"), path: "/shop?category=skincare&sub=suncare" },
+        {
+          name: t("subcategories.masks"),
+          path: "/categories/skincare?sub=masks",
+        },
+        {
+          name: t("subcategories.moisturizer"),
+          path: "/categories/skincare?sub=moisturizer",
+        },
+        {
+          name: t("subcategories.cleanser"),
+          path: "/categories/skincare?sub=cleanser",
+        },
+        {
+          name: t("subcategories.suncare"),
+          path: "/categories/skincare?sub=suncare",
+        },
       ],
     },
     {
@@ -49,10 +57,22 @@ export default function CategoriesPage() {
       name: t("categories.makeup"),
       image: makeupIMG,
       subcategories: [
-        { name: t("subcategories.face_makeup"), path: "/shop?category=makeup&sub=face_makeup" },
-        { name: t("subcategories.eye_makeup"), path: "/shop?category=makeup&sub=eye_makeup" },
-        { name: t("subcategories.lip_makeup"), path: "/shop?category=makeup&sub=lip_makeup" },
-        { name: t("subcategories.nails"), path: "/shop?category=makeup&sub=nails" },
+        {
+          name: t("subcategories.face_makeup"),
+          path: "/categories/makeup?sub=face_makeup",
+        },
+        {
+          name: t("subcategories.eye_makeup"),
+          path: "/categories/makeup?sub=eye_makeup",
+        },
+        {
+          name: t("subcategories.lip_makeup"),
+          path: "/categories/makeup?sub=lip_makeup",
+        },
+        {
+          name: t("subcategories.nails"),
+          path: "/categories/makeup?sub=nails",
+        },
       ],
     },
     {
@@ -60,11 +80,26 @@ export default function CategoriesPage() {
       name: t("categories.body_care"),
       image: bodyCareIMG,
       subcategories: [
-        { name: t("subcategories.body_lotion_oils"), path: "/shop?category=body_care&sub=body_lotion_oils" },
-        { name: t("subcategories.body_wash"), path: "/shop?category=body_care&sub=body_wash" },
-        { name: t("subcategories.body_scrub"), path: "/shop?category=body_care&sub=body_scrub" },
-        { name: t("subcategories.hand_foot_oral_care"), path: "/shop?category=body_care&sub=hand_foot_oral_care" },
-        { name: t("subcategories.body_mist_fragrance"), path: "/shop?category=body_care&sub=body_mist_fragrance" },
+        {
+          name: t("subcategories.body_lotion_oils"),
+          path: "/categories/body_care?sub=body_lotion_oils",
+        },
+        {
+          name: t("subcategories.body_wash"),
+          path: "/categories/body_care?sub=body_wash",
+        },
+        {
+          name: t("subcategories.body_scrub"),
+          path: "/categories/body_care?sub=body_scrub",
+        },
+        {
+          name: t("subcategories.hand_foot_oral_care"),
+          path: "/categories/body_care?sub=hand_foot_oral_care",
+        },
+        {
+          name: t("subcategories.body_mist_fragrance"),
+          path: "/categories/body_care?sub=body_mist_fragrance",
+        },
       ],
     },
     {
@@ -72,10 +107,22 @@ export default function CategoriesPage() {
       name: t("categories.hair_care"),
       image: hairCareIMG,
       subcategories: [
-        { name: t("subcategories.shampoo_conditioner"), path: "/shop?category=hair_care&sub=shampoo_conditioner" },
-        { name: t("subcategories.hair_treatment"), path: "/shop?category=hair_care&sub=hair_treatment" },
-        { name: t("subcategories.hair_essence_serum"), path: "/shop?category=hair_care&sub=hair_essence_serum" },
-        { name: t("subcategories.hair_color_styling"), path: "/shop?category=hair_care&sub=hair_color_styling" },
+        {
+          name: t("subcategories.shampoo_conditioner"),
+          path: "/categories/hair_care?sub=shampoo_conditioner",
+        },
+        {
+          name: t("subcategories.hair_treatment"),
+          path: "/categories/hair_care?sub=hair_treatment",
+        },
+        {
+          name: t("subcategories.hair_essence_serum"),
+          path: "/categories/hair_care?sub=hair_essence_serum",
+        },
+        {
+          name: t("subcategories.hair_color_styling"),
+          path: "/categories/hair_care?sub=hair_color_styling",
+        },
       ],
     },
     {
@@ -83,10 +130,22 @@ export default function CategoriesPage() {
       name: t("categories.accessories_tools"),
       image: accessoriesIMG,
       subcategories: [
-        { name: t("subcategories.cotton_pad"), path: "/shop?category=accessories_tools&sub=cotton_pad" },
-        { name: t("subcategories.beauty_device"), path: "/shop?category=accessories_tools&sub=beauty_device" },
-        { name: t("subcategories.brush"), path: "/shop?category=accessories_tools&sub=brush" },
-        { name: t("subcategories.others"), path: "/shop?category=accessories_tools&sub=others" },
+        {
+          name: t("subcategories.cotton_pad"),
+          path: "/categories/Accessories & Tools?sub=cotton_pad",
+        },
+        {
+          name: t("subcategories.beauty_device"),
+          path: "/categories/Accessories & Tools?sub=beauty_device",
+        },
+        {
+          name: t("subcategories.brush"),
+          path: "/categories/Accessories & Tools?sub=brush",
+        },
+        {
+          name: t("subcategories.others"),
+          path: "/categories/Accessories & Tools?sub=others",
+        },
       ],
     },
     {
@@ -94,49 +153,62 @@ export default function CategoriesPage() {
       name: t("categories.supplements"),
       image: supplementsIMG,
       subcategories: [
-        { name: t("subcategories.vitamins"), path: "/shop?category=supplements&sub=vitamins" },
-        { name: t("subcategories.probiotics"), path: "/shop?category=supplements&sub=probiotics" },
-        { name: t("subcategories.collagen"), path: "/shop?category=supplements&sub=collagen" },
-        { name: t("subcategories.diet_supplements"), path: "/shop?category=supplements&sub=diet_supplements" },
+        {
+          name: t("subcategories.vitamins"),
+          path: "/categories/supplements?sub=vitamins",
+        },
+        {
+          name: t("subcategories.probiotics"),
+          path: "/categories/supplements?sub=probiotics",
+        },
+        {
+          name: t("subcategories.collagen"),
+          path: "/categories/supplements?sub=collagen",
+        },
+        {
+          name: t("subcategories.diet_supplements"),
+          path: "/categories/supplements?sub=diet_supplements",
+        },
       ],
     },
   ];
 
-  // Brands section with 8 brands
   const brands = [
-    { name: "Brand A", logo: logo1, path: "/shop?brand=brand-a" },
-    { name: "Brand B", logo: logo2, path: "/shop?brand=brand-b" },
-    { name: "Brand C", logo: logo3, path: "/shop?brand=brand-c" },
-    { name: "Brand D", logo: logo4, path: "/shop?brand=brand-d" },
-    { name: "Brand E", logo: logo5, path: "/shop?brand=brand-e" },
-    { name: "Brand F", logo: logo6, path: "/shop?brand=brand-f" },
-    { name: "Brand G", logo: logo7, path: "/shop?brand=brand-g" },
-    { name: "Brand H", logo: logo8, path: "/shop?brand=brand-h" },
+    { name: "Anua", logo: logo1, path: "/brand/Anua" },
+    { name: "Beauty of Joseon", logo: logo2, path: "/brand/Beauty_of_Joseon" },
+    { name: "COSRX", logo: logo3, path: "/brand/COSRX" },
+    { name: "Skin1004", logo: logo4, path: "/brand/Skin1004" },
+    { name: "K-secret", logo: logo5, path: "/brand/K-secret" },
+    { name: "Laura Mercier", logo: logo6, path: "/brand/Laura_Mercier" },
+    { name: "Medicube", logo: logo7, path: "/brand/Medicube" },
+    { name: "Dr.Althea", logo: logo8, path: "/brand/Dr.Althea" },
   ];
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section with Background */}
       <div className="relative bg-gradient-to-r from-pink-100 to-white h-48 md:h-64 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-pink-600 mb-2">
             {t("categories.title")}
           </h1>
-          <p className="text-lg text-gray-600">
-            {t("categories.subtitle")}
-          </p>
+          <p className="text-lg text-gray-600">{t("categories.subtitle")}</p>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-12">
         {/* Breadcrumb */}
         <nav className="text-sm text-gray-500 mb-8 flex items-center space-x-2">
-          <Link to="/" className="flex items-center gap-1 hover:text-pink-500 transition">
+          <Link
+            to="/"
+            className="flex items-center gap-1 hover:text-pink-500 transition"
+          >
             <FaHome className="text-pink-500" size={16} />
             <span>{t("nav.home")}</span>
           </Link>
           <span>/</span>
-          <span className="text-pink-500 font-medium">{t("categories.title")}</span>
+          <span className="text-pink-500 font-medium">
+            {t("categories.title")}
+          </span>
         </nav>
 
         {/* Categories Section */}
@@ -150,7 +222,11 @@ export default function CategoriesPage() {
                 key={cat.id}
                 className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
               >
-                <NavLink to={`/shop?category=${cat.name.toLowerCase().replace(/\s+/g, "_")}`}>
+                <NavLink
+                  to={`/categories/${cat.name
+                    .toLowerCase()
+                    .replace(/\s+/g, "_")}`}
+                >
                   <img
                     src={cat.image}
                     alt={cat.name}
@@ -201,14 +277,16 @@ export default function CategoriesPage() {
               <NavLink
                 key={brand.path}
                 to={brand.path}
-                className="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center justify-center"
+                className="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center justify-center hover:shadow-md transition-shadow"
               >
                 <img
                   src={brand.logo}
                   alt={brand.name}
                   className="h-12 md:h-16 object-contain mb-2"
                 />
-                <span className="text-gray-700 font-medium text-sm text-center">{brand.name}</span>
+                <span className="text-gray-700 font-medium text-sm text-center hover:text-pink-500">
+                  {brand.name}
+                </span>
               </NavLink>
             ))}
           </div>

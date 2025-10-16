@@ -17,7 +17,7 @@ import imgpro16 from "../assets/home/ROUNDUPKOREAN.webp";
 import imgpro17 from "../assets/home/skin-carebanner-design.jpg";
 import imgpro18 from "../assets/home/teste.webp";
 import imgpro19 from "../assets/home/medicube.png";
-import imgpro20 from "../assets/careCategories/FootCare.jpg";
+import imgpro20 from "../assets/careCategories/FootCare.webp";
 
 export const products = [
   {
@@ -27,12 +27,12 @@ export const products = [
     price: 40,
     oldPrice: 60,
     badge: "SALE",
-    brand: "CeraVe",
-    category: "Skin Care",
+    brand: "Anua",
+    category: "SkinCare",
     careType: "Face",
     shortDescription: "Moisturizes deeply and restores skin barrier.",
     fullDescription:
-      "Hydrating Face Cream by CeraVe provides long-lasting hydration and helps restore the natural protective skin barrier. Ideal for dry and sensitive skin.",
+      "Hydrating Face Cream by Anua provides long-lasting hydration and helps restore the natural protective skin barrier. Ideal for dry and sensitive skin.",
     usage: "Apply a generous amount to cleansed face morning and night. Massage gently until absorbed.",
     highlights: [
       "Deep hydration for 24 hours",
@@ -47,12 +47,12 @@ export const products = [
     image: imgpro2,
     price: 25,
     badge: "NEW",
-    brand: "The Ordinary",
-    category: "Skin Care",
+    brand: "Beauty of Joseon",
+    category: "SkinCare",
     careType: "Face",
     shortDescription: "Brightens skin and reduces dark spots.",
     fullDescription:
-      "The Ordinary Vitamin C Serum is formulated to brighten skin, even out skin tone, and reduce the appearance of dark spots. Packed with antioxidants to fight free radicals.",
+      "Beauty of Joseon Vitamin C Serum is formulated to brighten skin, even out skin tone, and reduce the appearance of dark spots. Packed with antioxidants to fight free radicals.",
     usage: "Apply a few drops to the face in the morning before moisturizer. Avoid contact with eyes.",
     highlights: [
       "Brightens complexion",
@@ -67,12 +67,12 @@ export const products = [
     image: imgpro3,
     price: 15,
     badge: "TREND",
-    brand: "Nature Republic",
-    category: "Skin Care",
+    brand: "cosrx",
+    category: "SkinCare",
     careType: "Body",
     shortDescription: "Soothes and hydrates skin naturally.",
     fullDescription:
-      "Nature Republic Aloe Vera Gel calms irritated skin, provides instant hydration, and promotes healthy, smooth skin. Can be used on face and body.",
+      "cosrx Aloe Vera Gel calms irritated skin, provides instant hydration, and promotes healthy, smooth skin. Can be used on face and body.",
     usage: "Apply liberally to skin after cleansing or sun exposure. Can be used daily.",
     highlights: [
       "Instant soothing effect",
@@ -88,7 +88,7 @@ export const products = [
     price: 55,
     badge: "TREND",
     brand: "Beauty of Joseon",
-    category: "Skin Care",
+    category: "SkinCare",
     careType: "Face",
     shortDescription: "Gentle brightening rice-based skincare kit.",
     fullDescription:
@@ -106,12 +106,12 @@ export const products = [
     title: "Korean Sunscreen SPF50",
     image: imgpro5,
     price: 30,
-    brand: "Etude House",
-    category: "Sun Care",
+    brand: "Skin1004",
+    category: "SunCare",
     careType: "Face",
     shortDescription: "High protection SPF50 sunscreen with lightweight texture.",
     fullDescription:
-      "Etude House Korean Sunscreen SPF50 protects against UVA/UVB rays, prevents sun damage, and keeps skin hydrated without leaving white residue.",
+      "Skin1004 Korean Sunscreen SPF50 protects against UVA/UVB rays, prevents sun damage, and keeps skin hydrated without leaving white residue.",
     usage: "Apply evenly to face 15 minutes before sun exposure. Reapply every 2-3 hours.",
     highlights: [
       "SPF50 UVA/UVB protection",
@@ -125,12 +125,12 @@ export const products = [
     title: "Moisturizing Hand Cream",
     image: imgpro6,
     price: 10,
-    brand: "Nivea",
-    category: "Hand Care",
+    brand: "K-SECRET",
+    category: "Body Care",
     careType: "Hands",
     shortDescription: "Softens and protects hands.",
     fullDescription:
-      "Nivea Moisturizing Hand Cream nourishes dry hands, leaving them soft and smooth. Enriched with vitamins for all-day protection.",
+      "K-SECRET Moisturizing Hand Cream nourishes dry hands, leaving them soft and smooth. Enriched with vitamins for all-day protection.",
     usage: "Apply to hands and massage until fully absorbed, use daily as needed.",
     highlights: [
       "Deep hydration",
@@ -146,12 +146,12 @@ export const products = [
     price: 45,
     oldPrice: 55,
     badge: "SALE",
-    brand: "L’Oreal",
+    brand: "medicube",
     category: "Hair Care",
     careType: "Hair",
     shortDescription: "Restores damaged hair and improves texture.",
     fullDescription:
-      "L’Oreal Hair Repair Mask deeply nourishes damaged hair, repairing split ends and leaving hair soft and manageable.",
+      "medicube Hair Repair Mask deeply nourishes damaged hair, repairing split ends and leaving hair soft and manageable.",
     usage: "Apply to damp hair, leave for 5-10 minutes, then rinse thoroughly. Use 1-2 times per week.",
     highlights: [
       "Deep nourishment",
@@ -165,8 +165,8 @@ export const products = [
     title: "Egyptian Natural Oils Set",
     image: imgpro8,
     price: 65,
-    brand: "Egyptian Oils",
-    category: "Natural Care",
+    brand: "Dr.Althea",
+    category: "Accessories & Tools",
     careType: "Body",
     shortDescription: "Set of natural oils for skin nourishment.",
     fullDescription:
@@ -184,12 +184,12 @@ export const products = [
     title: "Foot Scrub Cream",
     image: imgpro9,
     price: 20,
-    brand: "Oriflame",
-    category: "Foot Care",
+    brand: "Laura Mercier",
+    category: "Supplements",
     careType: "Feet",
     shortDescription: "Removes dead skin and softens feet.",
     fullDescription:
-      "Oriflame Foot Scrub Cream gently exfoliates and removes dead skin cells while softening rough areas for smooth, healthy feet.",
+      "Laura Mercier Foot Scrub Cream gently exfoliates and removes dead skin cells while softening rough areas for smooth, healthy feet.",
     usage: "Massage onto wet feet 2-3 times per week, then rinse thoroughly.",
     highlights: [
       "Exfoliates dead skin",
@@ -203,12 +203,12 @@ export const products = [
     title: "Anti-Aging Night Cream",
     image: imgpro10,
     price: 70,
-    brand: "Olay",
-    category: "Skin Care",
+    brand: "Anua",
+    category: "SkinCare",
     careType: "Face",
     shortDescription: "Reduces fine lines and nourishes overnight.",
     fullDescription:
-      "Olay Anti-Aging Night Cream helps reduce fine lines, hydrates skin deeply, and promotes a youthful, radiant complexion while you sleep.",
+      "Anua Anti-Aging Night Cream helps reduce fine lines, hydrates skin deeply, and promotes a youthful, radiant complexion while you sleep.",
     usage: "Apply to cleansed face before bedtime, massage gently until absorbed.",
     highlights: [
       "Reduces fine lines",
@@ -222,12 +222,12 @@ export const products = [
     title: "Collagen Sheet Mask",
     image: imgpro11,
     price: 8,
-    brand: "Mediheal",
-    category: "Skin Care",
+    brand: "cosrx",
+    category: "Makeup",
     careType: "Face",
     shortDescription: "Boosts skin elasticity and hydration.",
     fullDescription:
-      "Mediheal Collagen Sheet Mask infuses skin with collagen and moisture to improve elasticity, reduce fine lines, and provide a radiant glow.",
+      "cosrx Collagen Sheet Mask infuses skin with collagen and moisture to improve elasticity, reduce fine lines, and provide a radiant glow.",
     usage: "Apply mask on cleansed face for 15-20 minutes, then remove and gently pat remaining essence.",
     highlights: [
       "Boosts elasticity",
@@ -241,12 +241,12 @@ export const products = [
     title: "Blackhead Removal Mask",
     image: imgpro12,
     price: 22,
-    brand: "Innisfree",
-    category: "Skin Care",
+    brand: "skin1004",
+    category: "Makeup",
     careType: "Face",
     shortDescription: "Removes blackheads and tightens pores.",
     fullDescription:
-      "Innisfree Blackhead Removal Mask clears impurities, unclogs pores, and removes blackheads effectively while leaving skin refreshed.",
+      "skin1004 Blackhead Removal Mask clears impurities, unclogs pores, and removes blackheads effectively while leaving skin refreshed.",
     usage: "Apply to nose and chin area, leave 10-15 minutes, then peel off gently.",
     highlights: [
       "Removes blackheads",
@@ -260,12 +260,12 @@ export const products = [
     title: "Makeup Remover Oil",
     image: imgpro13,
     price: 35,
-    brand: "Banila Co",
-    category: "Makeup Remover",
+    brand: "k-SECRET",
+    category: "Accessories & Tools",
     careType: "Face",
     shortDescription: "Dissolves makeup gently without irritation.",
     fullDescription:
-      "Banila Co Makeup Remover Oil melts away makeup, sunscreen, and impurities effectively while nourishing the skin.",
+      "k-SECRET Makeup Remover Oil melts away makeup, sunscreen, and impurities effectively while nourishing the skin.",
     usage: "Apply on dry face, massage gently, then rinse with water or follow with cleanser.",
     highlights: [
       "Removes makeup effectively",
@@ -279,12 +279,12 @@ export const products = [
     title: "Whitening Body Lotion",
     image: imgpro14,
     price: 50,
-    brand: "Vaseline",
+    brand: "Laura Mercier",
     category: "Body Care",
     careType: "Body",
     shortDescription: "Brightens and smooths skin.",
     fullDescription:
-      "Vaseline Whitening Body Lotion hydrates and brightens skin, improving overall texture and tone while leaving a silky finish.",
+      "Laura Mercier Whitening Body Lotion hydrates and brightens skin, improving overall texture and tone while leaving a silky finish.",
     usage: "Apply daily on body and massage until fully absorbed.",
     highlights: [
       "Brightens skin",
@@ -298,12 +298,12 @@ export const products = [
     title: "Hair Strengthening Shampoo",
     image: imgpro15,
     price: 28,
-    brand: "Pantene",
+    brand: "medicube",
     category: "Hair Care",
     careType: "Hair",
     shortDescription: "Strengthens hair and prevents breakage.",
     fullDescription:
-      "Pantene Hair Strengthening Shampoo strengthens hair fibers, reduces breakage, and improves overall hair health with regular use.",
+      "medicube Hair Strengthening Shampoo strengthens hair fibers, reduces breakage, and improves overall hair health with regular use.",
     usage: "Apply to wet hair, lather, and rinse thoroughly. Use 2-3 times weekly.",
     highlights: [
       "Strengthens hair",
@@ -318,12 +318,12 @@ export const products = [
     image: imgpro16,
     price: 60,
     badge: "TREND",
-    brand: "COSRX",
-    category: "Skin Care",
+    brand: "Dr.Althea",
+    category: "SkinCare",
     careType: "Face",
     shortDescription: "Hydrates, repairs, and improves skin texture.",
     fullDescription:
-      "COSRX Korean Snail Mucin Essence deeply hydrates skin, helps repair damaged tissue, and improves skin texture for a radiant look.",
+      "Dr.Althea Korean Snail Mucin Essence deeply hydrates skin, helps repair damaged tissue, and improves skin texture for a radiant look.",
     usage: "Apply 2-3 drops to face after cleansing and toning. Pat gently until absorbed.",
     highlights: [
       "Deep hydration",
@@ -337,8 +337,8 @@ export const products = [
     title: "Soothing Lip Balm",
     image: imgpro17,
     price: 12,
-    brand: "Carmex",
-    category: "Lip Care",
+    brand: "Anua",
+    category: "Body Care",
     careType: "Lips",
     shortDescription: "Relieves dry and chapped lips instantly.",
     fullDescription:
@@ -356,12 +356,12 @@ export const products = [
     title: "Herbal Egyptian Hair Oil",
     image: imgpro18,
     price: 40,
-    brand: "Cleopatra Oils",
+    brand: "cosrx",
     category: "Hair Care",
     careType: "Hair",
     shortDescription: "Nourishes and strengthens hair naturally.",
     fullDescription:
-      "Cleopatra Oils Herbal Egyptian Hair Oil strengthens hair, reduces frizz, and improves shine using natural plant-based ingredients.",
+      "cosrx Herbal Egyptian Hair Oil strengthens hair, reduces frizz, and improves shine using natural plant-based ingredients.",
     usage: "Apply a few drops to scalp and hair ends. Massage gently. Use 2-3 times weekly.",
     highlights: [
       "Strengthens hair",
@@ -375,12 +375,12 @@ export const products = [
     title: "Refreshing Face Toner",
     image: imgpro19,
     price: 27,
-    brand: "Pixi",
-    category: "Skin Care",
+    brand: "skin1004",
+    category: "SkinCare",
     careType: "Face",
     shortDescription: "Balances and refreshes skin.",
     fullDescription:
-      "Pixi Refreshing Face Toner helps balance skin pH, tightens pores, and leaves a refreshing sensation for a healthy complexion.",
+      "skin1004 Refreshing Face Toner helps balance skin pH, tightens pores, and leaves a refreshing sensation for a healthy complexion.",
     usage: "Apply to cotton pad and sweep across face after cleansing. Use morning and night.",
     highlights: [
       "Balances skin pH",
@@ -394,12 +394,12 @@ export const products = [
     title: "Deep Cleansing Foam",
     image: imgpro20,
     price: 18,
-    brand: "Neutrogena",
-    category: "Skin Care",
+    brand: "k-SECRET",
+    category: "Body Care",
     careType: "Face",
     shortDescription: "Removes impurities and excess oil effectively.",
     fullDescription:
-      "Neutrogena Deep Cleansing Foam removes dirt, oil, and makeup residue while maintaining skin hydration, leaving it clean and fresh.",
+      "k-SECRET Deep Cleansing Foam removes dirt, oil, and makeup residue while maintaining skin hydration, leaving it clean and fresh.",
     usage: "Apply a small amount to wet face, massage gently, and rinse thoroughly. Use daily.",
     highlights: [
       "Deep cleanses skin",

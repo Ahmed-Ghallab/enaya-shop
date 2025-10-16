@@ -9,11 +9,11 @@
     "shop_now": "Shop Now"
   },
   "bottomNav": {
-  "home": "Home",
-  "categories": "Categories",
-  "cart": "Cart",
-  "account": "Account"
-},
+    "home": "Home",
+    "categories": "Categories",
+    "cart": "Cart",
+    "account": "Account"
+  },
 
   "login": {
     "welcome": "Welcome to Enaya",
@@ -53,7 +53,10 @@
     "hair": "Hair Care",
     "face": "Face Care",
     "body": "Body Care",
-    "foot": "Foot Care"
+    "foot": "Foot Care",
+    "supplements": "Supplements",
+    "accessories": "Accessories & Tools",
+    "makeup": "Makeup"
   },
   "deals": {
     "section_title": "Hot Deals & Discounts",
@@ -95,6 +98,19 @@
     "securePaymentDesc": "100% safe checkout",
     "allNatural": "All Natural",
     "allNaturalDesc": "Trusted Original brands"
+  },
+  "animatedCategories": {
+    "title": "Seize the moment & explore our exclusive collection!"
+  },
+  "categoriesIconName": {
+    "deal": "HOT DEAL",
+    "beautyBag": "Beauty Bag",
+    "bestSeller": "Best Seller",
+    "timeDeal": "Time Deal",
+    "newArrival": "New Arrival",
+    "trending": "Trending",
+    "skincare": "Skincare",
+    "makeup": "Makeup"
   },
   "shopCollection": {
     "title": " Shop the Collection"
@@ -180,7 +196,6 @@
     "whatsapp": "Chat with us on WhatsApp"
   },
 
-
   "categories": {
     "title": "Categories",
     "subtitle": "Discover our curated range of beauty essentials",
@@ -221,5 +236,10 @@
     "probiotics": "Probiotics",
     "collagen": "Collagen",
     "diet_supplements": "Diet Supplements"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "message": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+    "backHome": "Back to Home"
   }
 }

@@ -1,13 +1,5 @@
-/* Spin Animation - أخف من framer motion */
-.spin-border {
-  animation: spin 15s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.care-categories-section {
+  background-image: url('/src/assets/careCategories/careBgPattern.svg');
+  background-size: cover;
+  background-position: center;
 }

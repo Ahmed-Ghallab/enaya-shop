@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
       title: "2. Your Consent & Choices",
       content: `By providing your personal information during checkout or while creating an account, you agree to us using it for order processing and delivery purposes. 
       For any additional use, like marketing emails, we’ll ask for your explicit permission. 
-      You can withdraw your consent at any time by contacting us at support@example.com.`,
+      You can withdraw your consent at any time by contacting us at support@enaya.com.`,
     },
     {
       title: "3. Sharing & Disclosure",

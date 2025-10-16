@@ -15,7 +15,7 @@ export default function ProductCard({ product }) {
   // to add l cart
   const handleAddToCart = () => {
     addToCart(product);
-    toast.success(`🛒 "${product.title}" added to cart successfully!`);
+    toast.success(` "${product.title}" added to cart successfully!`);
   };
 
   // to add l wishlist
@@ -80,7 +80,9 @@ export default function ProductCard({ product }) {
               ${product.oldPrice}
             </span>
           )}
-          <span className="text-pink-600 font-bold text-lg">${product.price}</span>
+          <span className="text-pink-600 font-bold text-lg">
+            ${product.price}
+          </span>
         </div>
 
         {/* button Add to Cart */}
@@ -101,7 +103,10 @@ export default function ProductCard({ product }) {
 
       {/* model l Quick View */}
       {isModalOpen && (
-        <QuickViewModal product={product} onClose={() => setIsModalOpen(false)} />
+        <QuickViewModal
+          product={product}
+          onClose={() => setIsModalOpen(false)}
+        />
       )}
     </div>
   );

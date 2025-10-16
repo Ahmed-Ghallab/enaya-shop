@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 import logo1 from "../../assets/BrandLogos/Anua.png";
 import logo2 from "../../assets/BrandLogos/beauty of joseon-Photoroom2.png";
@@ -17,17 +18,17 @@ import logo10 from "../../assets/BrandLogos/biodance-Photoroom.png";
 export default function BrandsSlider() {
   const { t } = useTranslation();
 
-  const logos = [
-    logo1,
-    logo2,
-    logo3,
-    logo4,
-    logo5,
-    logo6,
-    logo7,
-    logo8,
-    logo9,
-    logo10,
+  const brands = [
+    { name: "Anua", logo: logo1, path: "/brand/anua" },
+    { name: "Beauty of Joseon", logo: logo2, path: "/brand/beauty-of-joseon" },
+    { name: "COSRX", logo: logo3, path: "/brand/cosrx" },
+    { name: "SKIN1004", logo: logo4, path: "/brand/skin1004" },
+    { name: "K-Secret", logo: logo5, path: "/brand/k-secret" },
+    { name: "Laura Mercier", logo: logo6, path: "/brand/laura-mercier" },
+    { name: "Medicube", logo: logo7, path: "/brand/medicube" },
+    { name: "Dr.Althea", logo: logo8, path: "/brand/dr.althea" },
+    { name: "Mary & May", logo: logo9, path: "/brand/mary-and-may" },
+    { name: "Biodance", logo: logo10, path: "/brand/biodance" },
   ];
 
   return (
@@ -55,13 +56,18 @@ export default function BrandsSlider() {
           1024: { slidesPerView: 7 },
         }}
       >
-        {logos.map((logo, index) => (
-          <SwiperSlide key={index} className="flex justify-center items-center">
-            <img
-              src={logo}
-              alt={`${t("brandsSlider.brandAlt")} ${index + 1}`}
-              className="h-6 sm:h-8 md:h-10 w-auto object-contain opacity-80 hover:opacity-100 transition hover:scale-105"
-            />
+        {brands.map((brand, index) => (
+          <SwiperSlide
+            key={index}
+            className="flex justify-center items-center"
+          >
+            <Link to={brand.path}>
+              <img
+                src={brand.logo}
+                alt={brand.name}
+                className="h-6 sm:h-8 md:h-10 w-auto object-contain opacity-80 hover:opacity-100 transition hover:scale-105"
+              />
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -25,6 +25,9 @@ import Checkout from "./pages/CheckoutPage/Checkout";
 import OrderSuccessPage from "./pages/OrderSuccessPage/OrderSuccessPage";
 //language i18n
 import "./i18n";
+import CategoryDetailsPage from "./pages/CategoryDetailsPage/CategoryDetailsPage";
+import BrandDetailsPage from "./pages/BrandDetailsPage/BrandDetailsPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 export default function App() {
   return (
@@ -89,6 +92,23 @@ export default function App() {
             }
           />
           <Route
+            path="/categories/:category"
+            element={
+              <MainLayout>
+                <CategoryDetailsPage />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/brand/:brand"
+            element={
+              <MainLayout>
+                <BrandDetailsPage />
+              </MainLayout>
+            }
+          />
+
+          <Route
             path="/cart"
             element={
               <MainLayout>
@@ -136,8 +156,24 @@ export default function App() {
               </MainLayout>
             }
           />
-          <Route path="/checkout" element={ <MainLayout> <Checkout /> </MainLayout>} />
-          <Route path="/order-success/:id" element={ <MainLayout> <OrderSuccessPage /> </MainLayout>} />
+          <Route
+            path="/checkout"
+            element={
+              <MainLayout>
+                {" "}
+                <Checkout />{" "}
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/order-success/:id"
+            element={
+              <MainLayout>
+                {" "}
+                <OrderSuccessPage />{" "}
+              </MainLayout>
+            }
+          />
 
           {/* صفحات الـ Auth من غير Layout */}
           <Route path="/auth/login" element={<Login />} />
@@ -149,9 +185,9 @@ export default function App() {
           <Route
             path="*"
             element={
-              <h1 className="text-center text-8xl font-bold text-red-400">
-                404 PAGE NOT FOUND
-              </h1>
+              <MainLayout>
+                <NotFoundPage />
+              </MainLayout>
             }
           />
         </Routes>
