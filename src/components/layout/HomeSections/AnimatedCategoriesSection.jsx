@@ -5,14 +5,14 @@ import "swiper/css";
 import "./AnimatedCategoriesSection.css";
 import { useTranslation } from "react-i18next";
 
-import DEAL from "../../../assets/icons/50OFF.png";
-import GiBeautyBag from "../../../assets/icons/BeautyBag.png";
-import BestSeller from "../../../assets/icons/BestSeller.png";
-import timeDeals from "../../../assets/icons/TimeDeal2.png";
-import newArrival from "../../../assets/icons/NewArrival.png";
-import Trending from "../../../assets/icons/brands.png";
-import Skincare from "../../../assets/icons/Skincare.png";
-import Makeup from "../../../assets/icons/Makeup.png";
+import DEAL from "../../../assets/icons/50OFF.webp";
+import GiBeautyBag from "../../../assets/icons/BeautyBag.webp";
+import BestSeller from "../../../assets/icons/BestSeller.webp";
+import timeDeals from "../../../assets/icons/TimeDeal2.webp";
+import newArrival from "../../../assets/icons/NewArrival.webp";
+import Trending from "../../../assets/icons/brands.webp";
+import Skincare from "../../../assets/icons/Skincare.webp";
+import Makeup from "../../../assets/icons/Makeup.webp";
 
 const categories = [
   { id: 1, nameKey: "categoriesIconName.deal", icon: DEAL },

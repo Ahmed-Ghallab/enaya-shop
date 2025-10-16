@@ -5,13 +5,13 @@ import { motion as Motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import HairCareImg from "../../assets/careCategories/HairCare.png";
-import FaceCareImg from "../../assets/careCategories/FaceCare.png";
-import BodyCareImg from "../../assets/careCategories/BodyCare.png";
+import HairCareImg from "../../assets/careCategories/HairCare.webp";
+import FaceCareImg from "../../assets/careCategories/FaceCare.webp";
+import BodyCareImg from "../../assets/careCategories/BodyCare.webp";
 import FootCareImg from "../../assets/careCategories/FootCare.webp";
-import SupplementsImg from "../../assets/careCategories/SupplementsN.jpg";
-import AccessoriesImg from "../../assets/careCategories/Accessories&Tools.jpg";
-import MakeupImg from "../../assets/careCategories/makeup2.png";
+import SupplementsImg from "../../assets/careCategories/SupplementsN.webp";
+import AccessoriesImg from "../../assets/careCategories/Accessories&Tools.webp";
+import MakeupImg from "../../assets/careCategories/makeup2.webp";
 import "./CareCategories.css";
 
 export default function CareCategories() {
