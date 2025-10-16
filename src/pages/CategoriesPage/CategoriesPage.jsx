@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FaHome, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import skincareIMG from "../../assets/careCategories/BodyCare.png";
-import makeupIMG from "../../assets/careCategories/Makeup.jpg";
+import makeupIMG from "../../assets/careCategories/makeup2.png";
 import bodyCareIMG from "../../assets/careCategories/FootCare.webp";
 import hairCareIMG from "../../assets/careCategories/HairCare.png";
 import accessoriesIMG from "../../assets/careCategories/Accessories&Tools.jpg";

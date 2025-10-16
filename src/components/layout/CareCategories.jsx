@@ -11,7 +11,7 @@ import BodyCareImg from "../../assets/careCategories/BodyCare.png";
 import FootCareImg from "../../assets/careCategories/FootCare.webp";
 import SupplementsImg from "../../assets/careCategories/SupplementsN.jpg";
 import AccessoriesImg from "../../assets/careCategories/Accessories&Tools.jpg";
-import MakeupImg from "../../assets/careCategories/Makeup.jpg";
+import MakeupImg from "../../assets/careCategories/makeup2.png";
 import "./CareCategories.css";
 
 export default function CareCategories() {
